@@ -407,7 +407,7 @@ const MarketplaceFilters = () => {
                 {getFilterOptions('region').map((option) => (
                   <Button
                     key={typeof option === 'string' ? option : option.id}
-                    onClick={() => handleOptionSelect('region', option)}
+                    onClick={() => handleOptionSelect('region', typeof option === 'string' ? option : option.id)}
                     sx={{ 
                       display: 'block', 
                       width: '100%', 
