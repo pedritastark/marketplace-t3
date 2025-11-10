@@ -24,7 +24,6 @@ import {
   InputLabel,
   Select,
   MenuItem,
-  Grid2,
 } from '@mui/material';
 import {
   TrendingUp as TrendingUpIcon,
@@ -52,8 +51,8 @@ import {
 
 // Componente para KPIs de empresas
 const CompanyKPIs = () => (
-  <Grid2 container spacing={4} sx={{ mb: 6 }}>
-    <Grid2 xs={12} sm={6}>
+  <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" }, gap: 4, mb: 6 }}>
+    <Box>
       <Card sx={{ 
         background: 'rgba(255, 255, 255, 0.15)',
         backdropFilter: 'blur(20px)',
@@ -526,8 +525,8 @@ const ProviderKPIs = () => (
 // Componente para acciones rápidas
 const QuickActions = ({ userType }: { userType: string }) => (
   <Box sx={{ mb: 4 }}>
-    <Grid2 container spacing={2}>
-      <Grid2 xs={12} sm={6} md={userType === 'company' ? 4 : 6}>
+    <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" }, gap: 2 }}>
+      <Box>
         <Button
           variant="contained"
           startIcon={<AddIcon />}
@@ -546,7 +545,7 @@ const QuickActions = ({ userType }: { userType: string }) => (
       </Grid>
       
       {userType === 'company' && (
-        <Grid2 xs={12} sm={6} md={4}>
+        <Box>
           <Button
             variant="outlined"
             startIcon={<ShoppingCartIcon />}
@@ -555,10 +554,10 @@ const QuickActions = ({ userType }: { userType: string }) => (
           >
       Crear Demanda
           </Button>
-        </Grid2>
+        </Box>
       )}
       
-      <Grid2 xs={12} sm={6} md={userType === 'company' ? 4 : 6}>
+      <Box>
         <Button
           variant="outlined"
           startIcon={<AssessmentIcon />}
@@ -567,8 +566,8 @@ const QuickActions = ({ userType }: { userType: string }) => (
         >
           Ver Publicaciones
         </Button>
-      </Grid2>
-    </Grid2>
+      </Box>
+    </Box>
   </Box>
 );
 
@@ -592,8 +591,8 @@ const EditCompanyModal = ({ open, onClose, user }: { open: boolean, onClose: () 
     <Dialog open={open} onClose={onClose} maxWidth="md" fullWidth>
       <DialogTitle>Editar Información de la Empresa</DialogTitle>
       <DialogContent>
-        <Grid2 container spacing={2} sx={{ mt: 1 }}>
-          <Grid2 xs={12} sm={6}>
+        <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" }, gap: 2, mt: 1 }}>
+          <Box>
             <TextField
               fullWidth
               label="Nombre de la Empresa"
@@ -643,7 +642,7 @@ const EditCompanyModal = ({ open, onClose, user }: { open: boolean, onClose: () 
             </FormControl>
           </Grid>
           
-          <Grid2 xs={12}>
+          <Box>
             <TextField
               fullWidth
               label="Teléfono"
