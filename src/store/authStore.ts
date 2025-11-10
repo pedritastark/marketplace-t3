@@ -58,8 +58,8 @@ export const useAuthStore = create<AuthState>()(
         try {
           const response = await authAPI.login({ email, password });
           get().setAuth(response.token, response.user);
-        } catch (error: any) {
-          set({ error: error.message });
+        } catch (error: unknown) {
+          set({ error: error instanceof Error ? error.message : 'An error occurred' });
           throw error;
         } finally {
           set({ isLoading: false });
@@ -72,8 +72,8 @@ export const useAuthStore = create<AuthState>()(
           await authAPI.register(userData);
           // After successful registration, automatically log in
           await get().login(userData.email, userData.password);
-        } catch (error: any) {
-          set({ error: error.message });
+        } catch (error: unknown) {
+          set({ error: error instanceof Error ? error.message : 'An error occurred' });
           throw error;
         } finally {
           set({ isLoading: false });

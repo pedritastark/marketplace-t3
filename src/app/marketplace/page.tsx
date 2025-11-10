@@ -209,13 +209,13 @@ const MarketplaceNavigation = () => {
 const MarketplaceFilters = () => {
   const { categories, fetchPosts } = useMarketplace();
   const [openFilter, setOpenFilter] = useState<string | null>(null);
-  const [selectedFilters, setSelectedFilters] = useState<Record<string, any>>({});
+  const [selectedFilters, setSelectedFilters] = useState<Record<string, string | number>>({});
 
   const handleFilterClick = (filterType: string) => {
     setOpenFilter(openFilter === filterType ? null : filterType);
   };
 
-  const handleOptionSelect = (filterType: string, value: any) => {
+  const handleOptionSelect = (filterType: string, value: string | number) => {
     setSelectedFilters(prev => ({ ...prev, [filterType]: value }));
     setOpenFilter(null);
     

@@ -77,8 +77,9 @@ export default function RegisterPage() {
         router.push('/'); 
       }, 2000);
 
-    } catch (err: any) {
+    } catch (err: unknown) {
       // Error is handled by the store
+      console.error('Registration error:', err);
     }
   };
 

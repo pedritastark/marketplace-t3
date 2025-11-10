@@ -324,7 +324,7 @@ const TestimonialsSection = () => (
         Lo que dicen nuestros clientes
       </Typography>
       <Typography variant="h6" sx={{ fontStyle: 'italic', mb: 3 }}>
-        "La cooperación con T3 nos ha abierto nuevas vías para hacer nuestra gestión de residuos más eficiente. Nos ha traído nuevas alternativas para la reutilización de materiales, resultando en ahorros económicos significativos. Gracias a sus recomendaciones, hemos reducido significativamente la cantidad de residuos de cartón."
+        &quot;La cooperación con T3 nos ha abierto nuevas vías para hacer nuestra gestión de residuos más eficiente. Nos ha traído nuevas alternativas para la reutilización de materiales, resultando en ahorros económicos significativos. Gracias a sus recomendaciones, hemos reducido significativamente la cantidad de residuos de cartón.&quot;
       </Typography>
       <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 2 }}>
         <Avatar src="/team/cliente-ejemplo.jpg" alt="Tomás Vala" sx={{ width: 56, height: 56 }} />

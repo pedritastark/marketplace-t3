@@ -573,7 +573,7 @@ const QuickActions = ({ userType }: { userType: string }) => (
 );
 
 // Modal para editar información de empresa
-const EditCompanyModal = ({ open, onClose, user }: { open: boolean, onClose: () => void, user: any }) => {
+const EditCompanyModal = ({ open, onClose, user }: { open: boolean, onClose: () => void, user: { companyName?: string; fullName?: string; email?: string; phone?: string; website?: string; address?: string } | null }) => {
   const [formData, setFormData] = useState({
     companyName: user?.companyName || '',
     fullName: user?.fullName || '',

@@ -67,8 +67,8 @@ export const useMarketplace = () => {
     try {
       const data = await marketplaceAPI.getPosts(params);
       setPosts(data);
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'An error occurred');
     } finally {
       setLoading(false);
     }
@@ -78,8 +78,8 @@ export const useMarketplace = () => {
     try {
       const data = await marketplaceAPI.getCategories();
       setCategories(data);
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'An error occurred');
     }
   };
 
@@ -96,8 +96,8 @@ export const useMarketplace = () => {
             : post
         )
       );
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'An error occurred');
     }
   };
 
@@ -118,8 +118,8 @@ export const useMarketplace = () => {
       const newPost = await marketplaceAPI.createPost(postData);
       setPosts(prevPosts => [newPost, ...prevPosts]);
       return newPost;
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'An error occurred');
       throw err;
     }
   };
