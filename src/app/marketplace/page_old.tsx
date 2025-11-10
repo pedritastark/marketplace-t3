@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import { useMarketplace } from '../../hooks/useMarketplace';
 import { useAuthStore } from '../../store/authStore';
-import MarketplaceProducts from './components/MarketplaceProducts';
 import {
   Box,
   Typography,
