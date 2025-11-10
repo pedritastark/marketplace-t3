@@ -367,7 +367,7 @@ const MarketplaceFilters = () => {
                         textTransform: 'none'
                       }}
                     >
-                      {option}
+                      {typeof option === 'string' ? option : option.name}
                     </Button>
                   ))}
                 </Paper>
