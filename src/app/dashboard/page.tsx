@@ -8,6 +8,7 @@ import {
   Typography,
   Container,
   Paper,
+  Grid,
   Card,
   CardContent,
   Button,
@@ -25,7 +26,6 @@ import {
   Select,
   MenuItem,
 } from '@mui/material';
-import Grid from '@mui/material/Unstable_Grid2';
 import {
   TrendingUp as TrendingUpIcon,
   TrendingDown as TrendingDownIcon,
