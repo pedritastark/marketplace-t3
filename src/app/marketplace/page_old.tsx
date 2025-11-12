@@ -891,7 +891,7 @@ const MarketplaceProducts = () => {
                   />
                   
                   {/* Botón de Favorito */}
-                  <IconButton
+                  <IconButton 
                     sx={{
                       position: 'absolute',
                       top: 8,
@@ -899,12 +899,9 @@ const MarketplaceProducts = () => {
                       backgroundColor: 'rgba(255,255,255,0.9)',
                       '&:hover': { backgroundColor: 'white' }
                     }}
-                    onClick={() => toggleFavorite(product.id)}
+                    onClick={() => toggleFavorite(product.id, false)}
                   >
-                    {favorites.has(product.id) ? 
-                      <Favorite sx={{ color: '#f44336' }} /> : 
-                      <FavoriteBorder />
-                    }
+                    <FavoriteBorder />
                   </IconButton>
                   
                   {/* Rating Stars */}

@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import axios from 'axios';
 import { useAuthStore } from '@/store/authStore';
 import {
   Modal,
@@ -34,7 +33,7 @@ const modalStyle = {
 
 export default function LoginModal({ open, handleClose }: LoginModalProps) {
   const router = useRouter();
-  const setAuth = useAuthStore((state) => state.setAuth);
+  const login = useAuthStore((state) => state.login);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -44,18 +43,12 @@ export default function LoginModal({ open, handleClose }: LoginModalProps) {
     setError('');
 
     try {
-      const response = await axios.post('http://localhost:3001/api/login', {
-        email,
-        password,
-      });
-
-      const { token, user } = response.data;
-      setAuth(token, user);
+      // Usar la función login del authStore (ahora funciona sin backend)
+      await login(email, password);
       handleClose(); // Cierra el modal al iniciar sesión
       router.push('/dashboard'); // Redirige al dashboard
     } catch (err: unknown) {
-      const error = err as { response?: { data?: { message?: string } } };
-      setError(error.response?.data?.message || 'Error al iniciar sesión.');
+      setError(err instanceof Error ? err.message : 'Error al iniciar sesión.');
     }
   };
 

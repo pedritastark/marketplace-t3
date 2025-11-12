@@ -1,6 +1,5 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { authAPI } from '../services/api';
 
 // Define the shape of the user object
 interface User {
@@ -33,6 +32,43 @@ interface AuthState {
   clearError: () => void;
 }
 
+// Mock data for users - Frontend funciona sin backend
+interface MockUser {
+  id: string;
+  email: string;
+  password: string;
+  userType: 'company' | 'provider' | 'admin';
+  companyName?: string;
+  fullName: string;
+}
+
+const mockUsers: MockUser[] = [
+  {
+    id: '1',
+    email: 'empresa@transforma3.com',
+    password: 'password123',
+    userType: 'company',
+    companyName: 'Empresa Sustentable S.A.',
+    fullName: 'Juan Pérez'
+  },
+  {
+    id: '2',
+    email: 'proveedor@transforma3.com',
+    password: 'password123',
+    userType: 'provider',
+    companyName: 'Proveedora de Reciclaje',
+    fullName: 'María García'
+  },
+  {
+    id: '3',
+    email: 'admin@transforma3.com',
+    password: 'admin123',
+    userType: 'admin',
+    companyName: 'Transforma3',
+    fullName: 'Admin Transforma3'
+  }
+];
+
 // Create the store
 export const useAuthStore = create<AuthState>()(
   // The persist middleware automatically saves the store's state to localStorage
@@ -44,22 +80,42 @@ export const useAuthStore = create<AuthState>()(
       error: null,
       
       setAuth: (token, user) => {
-        localStorage.setItem('token', token);
+        if (typeof window !== 'undefined') {
+          localStorage.setItem('token', token);
+        }
         set({ token, user, error: null });
       },
       
       logout: () => {
-        localStorage.removeItem('token');
+        if (typeof window !== 'undefined') {
+          localStorage.removeItem('token');
+        }
         set({ token: null, user: null, error: null });
       },
       
       login: async (email: string, password: string) => {
         set({ isLoading: true, error: null });
+        
+        // Simular delay de red
+        await new Promise(resolve => setTimeout(resolve, 500));
+        
         try {
-          const response = await authAPI.login({ email, password });
-          get().setAuth(response.token, response.user);
+          // Buscar usuario en datos mock
+          const mockUser = mockUsers.find(u => u.email === email);
+          
+          if (!mockUser || mockUser.password !== password) {
+            throw new Error('Credenciales inválidas');
+          }
+          
+          // Crear token simulado
+          const token = `mock-token-${Date.now()}`;
+          
+          // Crear objeto de usuario sin password
+          const { password: _, ...user } = mockUser;
+          
+          get().setAuth(token, user);
         } catch (error: unknown) {
-          set({ error: error instanceof Error ? error.message : 'An error occurred' });
+          set({ error: error instanceof Error ? error.message : 'Error al iniciar sesión' });
           throw error;
         } finally {
           set({ isLoading: false });
@@ -68,12 +124,34 @@ export const useAuthStore = create<AuthState>()(
       
       register: async (userData) => {
         set({ isLoading: true, error: null });
+        
+        // Simular delay de red
+        await new Promise(resolve => setTimeout(resolve, 800));
+        
         try {
-          await authAPI.register(userData);
-          // After successful registration, automatically log in
+          // Verificar si el email ya existe
+          const existingUser = mockUsers.find(u => u.email === userData.email);
+          if (existingUser) {
+            throw new Error('El email ya está registrado');
+          }
+          
+          // Crear nuevo usuario mock
+          const newUser = {
+            id: String(mockUsers.length + 1),
+            email: userData.email,
+            password: userData.password,
+            userType: userData.user_type as 'company' | 'provider' | 'admin',
+            companyName: userData.company_name,
+            fullName: userData.full_name
+          };
+          
+          // Agregar usuario a la lista (solo en memoria para esta sesión)
+          mockUsers.push(newUser);
+          
+          // Auto login después del registro
           await get().login(userData.email, userData.password);
         } catch (error: unknown) {
-          set({ error: error instanceof Error ? error.message : 'An error occurred' });
+          set({ error: error instanceof Error ? error.message : 'Error al registrar usuario' });
           throw error;
         } finally {
           set({ isLoading: false });

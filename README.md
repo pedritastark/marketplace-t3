@@ -1,6 +1,8 @@
-# Transforma3 - Frontend
+# Transforma3 - Frontend (Standalone)
 
-Frontend de la plataforma Transforma3, construido con Next.js 15, TypeScript y Material-UI.
+Frontend de la plataforma Transforma3, construido con Next.js 15, TypeScript y Material-UI. 
+
+**✨ Este frontend funciona completamente de manera independiente, sin necesidad de backend.** Utiliza datos mock para simular toda la funcionalidad de la plataforma.
 
 ## 🚀 Tecnologías
 
@@ -8,7 +10,6 @@ Frontend de la plataforma Transforma3, construido con Next.js 15, TypeScript y M
 - **TypeScript** - Tipado estático
 - **Material-UI (MUI) v7** - Componentes de UI
 - **Zustand** - Gestión de estado
-- **Axios** - Cliente HTTP
 - **React 19** - Biblioteca de UI
 
 ## 📋 Prerrequisitos
@@ -29,15 +30,7 @@ cd transforma3-frontend
 npm install
 ```
 
-3. Crear archivo `.env.local` con las variables de entorno:
-```env
-NEXT_PUBLIC_API_URL=http://localhost:3001/api
-```
-
-Para producción:
-```env
-NEXT_PUBLIC_API_URL=https://tu-backend-url.com/api
-```
+**Nota:** No se requiere configuración de variables de entorno ni backend. El frontend funciona de manera completamente independiente con datos mock.
 
 ## 🚀 Ejecutar el Proyecto
 
@@ -78,9 +71,8 @@ src/
 │   ├── sobre-nosotros/     # Página Sobre Nosotros
 │   ├── layout.tsx          # Layout principal
 │   └── page.tsx            # Página principal
-├── hooks/                   # Custom React Hooks
-├── services/               # Servicios de API
-└── store/                  # Estado global (Zustand)
+├── hooks/                   # Custom React Hooks (con datos mock)
+└── store/                  # Estado global (Zustand con datos mock)
 ```
 
 ## 🎨 Características Principales
@@ -103,30 +95,43 @@ src/
 - `CopilotSection` - Sección de Copilot
 - `NewsSection` - Sección de noticias
 
-## 🌐 Variables de Entorno
+## 📊 Datos Mock
 
-### Desarrollo (`.env.local`)
-- `NEXT_PUBLIC_API_URL` - URL del backend API (default: http://localhost:3001/api)
+El frontend incluye datos mock para todas las funcionalidades:
 
-### Producción
-- `NEXT_PUBLIC_API_URL` - URL del backend API en producción
+### Autenticación
+Usuarios de prueba disponibles:
+- **Empresa**: `empresa@transforma3.com` / `password123`
+- **Proveedor**: `proveedor@transforma3.com` / `password123`
+- **Admin**: `admin@transforma3.com` / `admin123`
+
+También puedes registrar nuevos usuarios (se guardan en memoria durante la sesión).
+
+### Marketplace
+- 8 publicaciones de ejemplo con diferentes categorías
+- 5 categorías de materiales reciclables
+- Sistema de favoritos funcional
+- Filtros por categoría, tipo y región
+
+### Funcionalidades
+- Login y registro sin backend
+- Gestión de sesión con localStorage
+- Marketplace completamente funcional
+- Creación de publicaciones
+- Sistema de favoritos
+- Perfil de usuario
 
 ## 🚀 Despliegue
 
 ### Vercel (Recomendado)
 1. Conectar el repositorio en Vercel
-2. Configurar la variable de entorno `NEXT_PUBLIC_API_URL`
-3. El build se ejecutará automáticamente
+2. El build se ejecutará automáticamente
+3. No requiere configuración adicional
 
-### Otros Servicios (Netlify, etc.)
+### Otros Servicios (Netlify, Railway, etc.)
 1. Build command: `npm run build`
 2. Output directory: `.next`
-3. Configurar variables de entorno
-
-## 🔗 Backend
-
-Este frontend se conecta con el backend de Transforma3:
-- Repository: [transforma3-backend](https://github.com/pedritastark/transforma3-backend)
+3. Start command: `npm start`
 
 ## 🤝 Contribución
 
