@@ -25,8 +25,9 @@ const ConsultingHero = () => (
       position: 'relative',
       display: 'flex',
       alignItems: 'center',
-      py: 6,
-      minHeight: '80vh',
+      py: { xs: 16, md: 6 },
+      pt: { xs: 'calc(60px + 12vh)', md: 'calc(64px + 12vh)' },
+      minHeight: { xs: 'auto', md: 'auto' },
       color: 'white',
       '&::before': {
         content: '""',
@@ -40,45 +41,236 @@ const ConsultingHero = () => (
       },
     }}
   >
-    <Container maxWidth="lg">
-      <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 4, alignItems: 'center' }}>
-        {/* Columna Izquierda: Texto */}
-        <Box sx={{ flex: { md: 7 }, textAlign: { xs: 'center', md: 'left' } }}>
-          <Typography variant="h2" component="h1" sx={{ fontWeight: 'bold' }}>
-            Consultoría T3
-          </Typography>
-          <Typography variant="h5" sx={{ mt: 2, mb: 4 }}>
-            Uso Optimizado de Materiales para un Futuro Circular.
-          </Typography>
-          <Typography variant="body1" sx={{ mb: 4 }}>
-            Consultoría T3 ofrece soluciones completas para optimizar los flujos de materiales de tu empresa, haciendo tu producción más eficiente, rentable y amigable con el medio ambiente.
-          </Typography>
-          <Box sx={{ display: 'flex', gap: 2, alignItems: 'center', justifyContent: { xs: 'center', md: 'flex-start' } }}>
-            <Button variant="contained" size="large" sx={{ backgroundColor: '#ff6f00', color: 'white', '&:hover': { backgroundColor: '#e66000' }, boxShadow: 'none' }}>
-              Hablar con Expertos
-            </Button>
-            {/* Texto "Descargar Ficha de Producto" más grande */}
-            <Button variant="text" size="large" sx={{ color: '#ff6f00', fontWeight: 'bold', textTransform: 'none', fontSize: '1rem' }}>
-              Descargar Ficha de Producto
-            </Button>
+    <Container maxWidth="lg" sx={{ pl: { sm: '0px !important' }, pr: { sm: '50px !important' } }}>
+      <Box sx={{ textAlign: 'left', mx: { xs: 3, md: 0 } }}>
+        {/* Título Principal */}
+        <Typography 
+          variant="h1" 
+          component="h1" 
+          sx={{ 
+            fontWeight: 'bold',
+            fontSize: { xs: '2.5rem', md: '4rem' },
+            lineHeight: 1.1,
+            mb: 2
+          }}
+        >
+          Consultoría T3
+        </Typography>
+        
+        {/* Subtítulo */}
+        <Typography 
+          variant="h1" 
+          sx={{ 
+            fontSize: { xs: '1.5rem', md: '2rem' },
+            fontWeight: 'bold',
+            mb: 3,
+            lineHeight: 1.15
+          }}  
+        >
+          Uso Optimizado de Materiales 
+        </Typography>
+        
+        {/* Descripción */}
+        <Typography 
+          variant="body1" 
+          sx={{ 
+            fontSize: { xs: '1rem', md: '1.125rem' },
+            mb: 6,
+            lineHeight: 1.4,
+            maxWidth: '800px'
+          }}
+        >
+          Consultoría T3 ofrece soluciones completas y personalizadas que optimizan los flujos de materiales de las empresas, haciendo su producción más eficiente, rentable y amigable con el medio ambiente.
+        </Typography>
+
+        {/* Estadísticas */}
+        <Box sx={{ mb: 6, display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: { xs: 0, md: 6 } }}>
+          {/* Total savings */}
+          <Box>
+            <Typography 
+              variant="body1" 
+              sx={{ 
+                fontSize: { xs: '1rem', md: '1.125rem' },
+                mb: 0.5,
+                lineHeight: 1.3
+              }}
+            >
+              Ahorros totales de
+            </Typography>
+            <Box sx={{ display: 'flex', alignItems: 'baseline', gap: { xs: 1, md: 2 }, mb: 0.5, justifyContent: 'flex-start', flexWrap: 'nowrap' }}>
+              <Typography 
+                variant="h1" 
+                sx={{ 
+                  fontWeight: 'bold',
+                  fontSize: { xs: '2.5rem', md: '5rem' },
+                  lineHeight: 0.9,
+                  whiteSpace: 'nowrap'
+                }}
+              >
+                487 661
+              </Typography>
+              <Typography 
+                variant="h4" 
+                sx={{ 
+                  fontWeight: 'bold',
+                  fontSize: { xs: '1.25rem', md: '2.5rem' },
+                  lineHeight: 1,
+                  whiteSpace: 'nowrap'
+                }}
+              >
+                tons of CO2
+              </Typography>
+            </Box>
+            <Typography 
+              variant="body1" 
+              sx={{ 
+                fontSize: { xs: '1rem', md: '1.125rem' },
+                mb: { xs: 3, md: 0 },
+                lineHeight: 1.3
+              }}
+            >
+              ahorradas en los últimos 12 meses
+            </Typography>
+          </Box>
+
+          {/* Completed projects */}
+          <Box>
+            <Typography 
+              variant="body1" 
+              sx={{ 
+                fontSize: { xs: '1rem', md: '1.125rem' },
+                mb: 0.5,
+                lineHeight: 1.3
+              }}
+            >
+              Completados
+            </Typography>
+            <Box sx={{ display: 'flex', alignItems: 'baseline', gap: { xs: 1, md: 2 }, mb: 0.5, justifyContent: 'flex-start', flexWrap: 'nowrap' }}>
+              <Typography 
+                variant="h1" 
+                sx={{ 
+                  fontWeight: 'bold',
+                  fontSize: { xs: '2.5rem', md: '5rem' },
+                  lineHeight: 0.9,
+                  whiteSpace: 'nowrap'
+                }}
+              >
+                350
+              </Typography>
+              <Typography 
+                variant="h4" 
+                sx={{ 
+                  fontWeight: 'bold',
+                  fontSize: { xs: '1.25rem', md: '2.5rem' },
+                  lineHeight: 1,
+                  whiteSpace: 'nowrap'
+                }}
+              >
+                +
+              </Typography>
+            </Box>
+            <Typography 
+              variant="body1" 
+              sx={{ 
+                fontSize: { xs: '1rem', md: '1.125rem' },
+                mb: { xs: 3, md: 0 },
+                lineHeight: 1.3
+              }}
+            >
+              proyectos exitosos
+            </Typography>
+          </Box>
+
+          {/* Countries */}
+          <Box>
+            <Typography 
+              variant="body1" 
+              sx={{ 
+                fontSize: { xs: '1rem', md: '1.125rem' },
+                mb: 0.5,
+                lineHeight: 1.3
+              }}
+            >
+              Presentes en
+            </Typography>
+            <Box sx={{ display: 'flex', alignItems: 'baseline', gap: { xs: 1, md: 2 }, mb: 0.5, justifyContent: 'flex-start', flexWrap: 'nowrap' }}>
+              <Typography 
+                variant="h1" 
+                sx={{ 
+                  fontWeight: 'bold',
+                  fontSize: { xs: '2.5rem', md: '5rem' },
+                  lineHeight: 0.9,
+                  whiteSpace: 'nowrap'
+                }}
+              >
+                8
+              </Typography>
+              <Typography 
+                variant="h4" 
+                sx={{ 
+                  fontWeight: 'bold',
+                  fontSize: { xs: '1.25rem', md: '2.5rem' },
+                  lineHeight: 1,
+                  whiteSpace: 'nowrap'
+                }}
+              >
+                países
+              </Typography>
+            </Box>
+            <Typography 
+              variant="body1" 
+              sx={{ 
+                fontSize: { xs: '1rem', md: '1.125rem' },
+                lineHeight: 1.3
+              }}
+            >
+              con más de 30 expertos
+            </Typography>
           </Box>
         </Box>
-        {/* Columna Derecha: Métricas */}
-        <Box sx={{ flex: { md: 5 }, width: '100%' }}>
-          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3, textAlign: 'center' }}>
-            <Box>
-              <Typography variant="h3" sx={{ fontWeight: 'bold' }}>+15,000</Typography>
-              <Typography>toneladas de CO2 ahorradas</Typography>
-            </Box>
-            <Box>
-              <Typography variant="h3" sx={{ fontWeight: 'bold' }}>+50</Typography>
-              <Typography>proyectos exitosos completados</Typography>
-            </Box>
-            <Box>
-              <Typography variant="h3" sx={{ fontWeight: 'bold' }}>Colombia</Typography>
-              <Typography>con más de 10 expertos locales</Typography>
-            </Box>
-          </Box>
+
+        {/* Botones */}
+        <Box sx={{ display: 'flex', flexDirection: 'row', gap: { xs: 2.5, md: 3 }, alignItems: 'flex-start', justifyContent: 'flex-start', flexWrap: 'nowrap' }}>
+          <Button 
+            variant="contained" 
+            sx={{ 
+              backgroundColor: '#ff8c00', 
+              color: 'white', 
+              '&:hover': { backgroundColor: '#e67e00' }, 
+              boxShadow: 'none',
+              borderRadius: '8px',
+              padding: { xs: '10px 30px', md: '12px 32px' },
+              fontWeight: 'bold',
+              fontSize: { xs: '0.875rem', md: '1rem' },
+              textTransform: 'uppercase',
+              lineHeight: 1.3,
+              whiteSpace: 'pre-line',
+              textAlign: 'center',
+              minWidth: 'auto',
+              flex: { xs: 'none', md: 'none' }
+            }}
+            >
+              {'Hablar con\nExpertos'}
+            </Button>
+            <Button
+            variant="text" 
+            sx={{ 
+              color: '#ff8c00', 
+              fontWeight: 'bold', 
+              textTransform: 'uppercase',
+              fontSize: { xs: '0.875rem', md: '1rem' },
+              padding: { xs: '8px 10px', md: '12px 32px' },
+              lineHeight: 1.3,
+              whiteSpace: 'pre-line',
+              textAlign: 'left',
+              minWidth: 'auto',
+              flex: { xs: 'none', md: 'none' },
+
+          
+            }}
+          >
+            {'Descargar\nFicha Técnica'}
+          </Button>
         </Box>
       </Box>
     </Container>
@@ -159,10 +351,10 @@ const IndustryExperience = () => {
   const selectedData = industryData[selectedIndustry];
 
   return (
-    <Box sx={{ py: 8, backgroundColor: '#f9f9f9' }}>
+    <Box sx={{ py: { xs: 16, md: 8 }, backgroundColor: '#f9f9f9' }}>
       <Container maxWidth="lg">
-        <Box sx={{ mb: 4 }}>
-          <Typography variant="h4" component="h2" sx={{ fontWeight: 'bold', mb: 2 }}>
+        <Box sx={{ mb: 2, mx: { xs: 3, md: 0 } }}>
+          <Typography variant="h4" component="h2" sx={{ fontWeight: 'bold', mb: 1 }}>
             Experiencia a través de industrias
           </Typography>
           <Box sx={{ maxWidth: { md: '33%' } }}>
@@ -172,7 +364,7 @@ const IndustryExperience = () => {
           </Box>
         </Box>
         <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 4 }}>
-          <Box sx={{ display: 'flex', flexDirection: { xs: 'row', md: 'column' }, gap: 1, flexWrap: 'wrap', minWidth: { md: 200 } }}>
+          <Box sx={{ display: 'flex', flexDirection: { xs: 'row', md: 'column' }, gap: 1, flexWrap: 'wrap', minWidth: { md: 200 }, mx: { xs: 3, md: 0 } }}>
             {industries.map(industry => {
               const isSelected = selectedIndustry === industry.id;
               return (
@@ -206,7 +398,7 @@ const IndustryExperience = () => {
               );
             })}
           </Box>
-          <Box sx={{ flexGrow: 1 }}>
+          <Box sx={{ flexGrow: 1, mx: { xs: 3, md: 0 } }}>
             <Typography variant="h5" sx={{ fontWeight: 'bold', mb: 2 }}>
               {industries.find(i => i.id === selectedIndustry)?.name}
             </Typography>
@@ -304,7 +496,7 @@ const TestimonialsSection = () => (
   <Box
     sx={{
       position: 'relative',
-      py: 10,
+      py: { xs: 20, md: 10 },
       color: 'white',
       textAlign: 'center',
       '&::before': {
@@ -320,17 +512,19 @@ const TestimonialsSection = () => (
     }}
   >
     <Container maxWidth="md">
-      <Typography variant="h4" component="h2" sx={{ fontWeight: 'bold', mb: 4 }}>
-        Lo que dicen nuestros clientes
-      </Typography>
-      <Typography variant="h6" sx={{ fontStyle: 'italic', mb: 3 }}>
-        &quot;La cooperación con T3 nos ha abierto nuevas vías para hacer nuestra gestión de residuos más eficiente. Nos ha traído nuevas alternativas para la reutilización de materiales, resultando en ahorros económicos significativos. Gracias a sus recomendaciones, hemos reducido significativamente la cantidad de residuos de cartón.&quot;
-      </Typography>
-      <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 2 }}>
-        <Avatar src="/team/cliente-ejemplo.jpg" alt="Tomás Vala" sx={{ width: 56, height: 56 }} />
-        <Box textAlign="left">
-          <Typography sx={{ fontWeight: 'bold' }}>Tomás Vala</Typography>
-          <Typography>CEO en SIKO</Typography>
+      <Box sx={{ mx: { xs: 3, md: 0 } }}>
+        <Typography variant="h4" component="h2" sx={{ fontWeight: 'bold', mb: 4 }}>
+          Lo que dicen nuestros clientes
+        </Typography>
+        <Typography variant="h6" sx={{ fontStyle: 'italic', mb: 3 }}>
+          &quot;La cooperación con T3 nos ha abierto nuevas vías para hacer nuestra gestión de residuos más eficiente. Nos ha traído nuevas alternativas para la reutilización de materiales, resultando en ahorros económicos significativos. Gracias a sus recomendaciones, hemos reducido significativamente la cantidad de residuos de cartón.&quot;
+        </Typography>
+        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 2 }}>
+          <Avatar src="/team/cliente-ejemplo.jpg" alt="Tomás Vala" sx={{ width: 56, height: 56 }} />
+          <Box textAlign="left">
+            <Typography sx={{ fontWeight: 'bold' }}>Tomás Vala</Typography>
+            <Typography>CEO en SIKO</Typography>
+          </Box>
         </Box>
       </Box>
     </Container>

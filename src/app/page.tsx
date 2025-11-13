@@ -11,7 +11,7 @@ import NewsSection from './components/NewsSection';
 export default function HomePage() {
 
   return (
-    <div style={{ marginTop: '-64px' }}>
+    <div>
       {/* Hero Section - Justo debajo del header */}
       <HomeHero />
       

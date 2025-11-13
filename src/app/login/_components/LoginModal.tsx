@@ -67,7 +67,7 @@ export default function LoginModal({ open, handleClose }: LoginModalProps) {
       <Box sx={modalStyle}>
 
 
-        <Typography id="login-modal-title" variant="h5" component="h2" sx={{ fontWeight: 'bold', color: '#ff6f00' }}>
+        <Typography id="login-modal-title" variant="h5" component="h2" sx={{ fontWeight: 'bold', color: '#ff8c00' }}>
           Iniciar Sesión
         </Typography>
 
@@ -86,10 +86,10 @@ export default function LoginModal({ open, handleClose }: LoginModalProps) {
             InputLabelProps={{ shrink: true }}
             sx={{
               '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                borderColor: '#ff6f00',
+                borderColor: '#ff8c00',
               },
               '& .MuiInputLabel-root.Mui-focused': {
-                color: '#ff6f00',
+                color: '#ff8c00',
               },
             }}
           />
@@ -107,10 +107,10 @@ export default function LoginModal({ open, handleClose }: LoginModalProps) {
             InputLabelProps={{ shrink: true }}
             sx={{
               '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                borderColor: '#ff6f00',
+                borderColor: '#ff8c00',
               },
               '& .MuiInputLabel-root.Mui-focused': {
-                color: '#ff6f00',
+                color: '#ff8c00',
               },
             }}
           />
@@ -127,9 +127,9 @@ export default function LoginModal({ open, handleClose }: LoginModalProps) {
                 type="submit"
                 variant="contained"
                 sx={{ 
-                  backgroundColor: '#ff6f00',
+                  backgroundColor: '#ff8c00',
                   color: 'white',
-                  '&:hover': { backgroundColor: '#e66000' },
+                  '&:hover': { backgroundColor: '#e67e00' },
                   borderRadius: '8px',
                   padding: '10px 20px',
                   boxShadow: 'none',

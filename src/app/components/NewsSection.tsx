@@ -75,7 +75,7 @@ export default function NewsSection() {
 
   return (
     <Box sx={{ py: { xs: 4, md: 8 }, backgroundColor: '#f7f7f7' }}>
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" sx={{ pl: { xs: '16px', md: '165px' } }}>
         <Typography variant="h3" component="h2" gutterBottom sx={{ fontWeight: 'bold', mb: 4, color: '#4d2a00' }}>
           Inspírate<span style={{ color: '#f44336' }}>.</span>
         </Typography>
@@ -123,7 +123,7 @@ export default function NewsSection() {
                   </Typography>
                   <Button 
                     onClick={() => setSelectedCategory(null)}
-                    sx={{ mt: 2, color: '#ff6f00' }}
+                    sx={{ mt: 2, color: '#ff8c00' }}
                   >
                     Ver todas las noticias
                   </Button>
@@ -148,10 +148,10 @@ export default function NewsSection() {
                     variant={selectedCategory === category ? "filled" : "outlined"}
                     color={selectedCategory === category ? "primary" : "default"}
                     sx={{
-                      backgroundColor: selectedCategory === category ? '#ff6f00' : 'transparent',
+                      backgroundColor: selectedCategory === category ? '#ff8c00' : 'transparent',
                       color: selectedCategory === category ? 'white' : 'inherit',
                       '&:hover': {
-                        backgroundColor: selectedCategory === category ? '#e66000' : 'rgba(0, 0, 0, 0.04)',
+                        backgroundColor: selectedCategory === category ? '#e67e00' : 'rgba(0, 0, 0, 0.04)',
                       }
                     }}
                   />
@@ -163,7 +163,7 @@ export default function NewsSection() {
                 <Button 
                   onClick={() => setSelectedCategory(null)}
                   variant="text"
-                  sx={{ mt: 2, color: '#ff6f00', textTransform: 'none' }}
+                  sx={{ mt: 2, color: '#ff8c00', textTransform: 'none' }}
                 >
                   Limpiar filtros
                 </Button>

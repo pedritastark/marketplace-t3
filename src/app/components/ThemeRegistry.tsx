@@ -53,11 +53,11 @@ export default function ThemeRegistry({ children }: { children: React.ReactNode 
 
   const theme = createTheme({
     typography: {
-      fontFamily: 'Plaid Sans, Cern, "Avenir Next", Avenir, "Proxima Nova", "Jakarta Plus Sans", Futura, "Avant Garde", Montserrat, "Helvetica Neue", Helvetica, "Nimbus Sans", system-ui, -apple-system, BlinkMacSystemFont, Arial, "Segoe UI", Roboto, Oxygen, sans-serif',
+      fontFamily: '"Bitcount Prop Double", "Libre Baskerville", Barrio, Roboto, sans-serif',
     },
     palette: {
       primary: {
-        main: '#ff6f00',
+        main: '#ff8c00',
       },
       secondary: {
         main: '#f44336',

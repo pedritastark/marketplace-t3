@@ -1,4 +1,4 @@
-'use client';
+ 'use client';
 
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
@@ -53,6 +53,7 @@ function HeaderContent() {
   const { user, logout } = useAuthStore();
   const [isVisible, setIsVisible] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [currentPath, setCurrentPath] = useState('');
 
   // Estado para controlar la visibilidad del modal
   const [isLoginModalOpen, setLoginModalOpen] = useState(false);
@@ -65,6 +66,31 @@ function HeaderContent() {
 
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    // Detectar la ruta actual
+    if (typeof window !== 'undefined') {
+      setCurrentPath(window.location.pathname);
+      
+      // Escuchar cambios de ruta
+      const handleRouteChange = () => {
+        setCurrentPath(window.location.pathname);
+      };
+      
+      window.addEventListener('popstate', handleRouteChange);
+      
+      return () => {
+        window.removeEventListener('popstate', handleRouteChange);
+      };
+    }
+  }, []);
+
+  // Actualizar currentPath cuando cambie la ruta usando el router de Next.js
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setCurrentPath(window.location.pathname);
+    }
+  }, [router]);
 
   const handleDashboard = () => {
     router.push('/dashboard');
@@ -113,26 +139,75 @@ function HeaderContent() {
 
           {/* Menú de navegación - Desktop */}
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, ml: 4, alignItems: 'center' }}>
-            {navItems.map((item) => (
-              <React.Fragment key={item.label}>
-                <Button
-                  component={Link}
-                  href={item.href}
-                  sx={{ color: 'black', textTransform: 'none', fontWeight: 'bold', fontSize: '0.813rem' }}
-                >
-                  {item.label}
-                </Button>
-                {item.label === 'SOBRE NOSOTROS' && (
-                  <Divider orientation="vertical" flexItem sx={{ mx: 0.5, borderColor: 'rgba(0, 0, 0, 0.5)', height: '24px', alignSelf: 'center' }} />
-                )}
-              </React.Fragment>
-            ))}
+            {navItems.map((item) => {
+              const isActive = currentPath === item.href;
+              const isOrangeItem = item.label === 'CONSULTORIA' || item.label === 'COPILOTO';
+              
+              return (
+                <React.Fragment key={item.label}>
+                  <Button
+                    component={Link}
+                    href={item.href}
+                    onClick={() => setCurrentPath(item.href)}
+                    sx={{ 
+                      color: isActive && isOrangeItem ? '#ff8c00' : 'black',
+                      textTransform: 'none', 
+                      fontWeight: 'bold', 
+                      fontSize: '0.813rem',
+                      transition: 'color 0.4s ease',
+                      '&:hover': {
+                        backgroundColor: 'transparent',
+                        color: isOrangeItem ? '#ff8c00' : 'black'
+                      },
+                      '&:active': {
+                        backgroundColor: 'transparent',
+                        boxShadow: 'none'
+                      },
+                      '&:focus': {
+                        outline: 'none',
+                        backgroundColor: 'transparent'
+                      },
+                      '&.Mui-focusVisible': {
+                        backgroundColor: 'transparent'
+                      }
+                    }}
+                  >
+                    {item.label}
+                  </Button>
+                  {item.label === 'SOBRE NOSOTROS' && (
+                    <Divider orientation="vertical" flexItem sx={{ mx: 0.5, borderColor: 'rgba(0, 0, 0, 0.5)', height: '24px', alignSelf: 'center' }} />
+                  )}
+                </React.Fragment>
+              );
+            })}
             {navItemsBottom.map((item) => (
               <Button
                 key={item.label}
                 component={Link}
                 href={item.href}
-                sx={{ color: 'black', textTransform: 'none', fontWeight: 'bold', fontSize: '0.813rem' }}
+                onClick={() => setCurrentPath(item.href)}
+                sx={{ 
+                  color: 'black', 
+                  textTransform: 'none', 
+                  fontWeight: 'bold', 
+                  fontSize: '0.813rem',
+                  transition: 'color 0.4s ease',
+                  '&:hover': {
+                    backgroundColor: 'transparent',
+                    color: 'black'
+                  },
+                  '&:active': {
+                    backgroundColor: 'transparent',
+                    boxShadow: 'none'
+                  },
+                  '&:focus': {
+                    outline: 'none',
+                    backgroundColor: 'transparent'
+                  },
+                  '&.Mui-focusVisible': {
+                    backgroundColor: 'transparent'
+                  }
+                }}
               >
                 {item.label}
               </Button>
@@ -175,7 +250,7 @@ function HeaderContent() {
                 <Button
                   variant="text"
                   onClick={() => setLoginModalOpen(true)}
-                  sx={{ color: '#ff6f00', fontWeight: 'bold', fontSize: '0.85rem' }}
+                  sx={{ color: '#ff8c00', fontWeight: 'bold', fontSize: '0.85rem' }}
                 >
                   Iniciar Sesión
                 </Button>
@@ -183,7 +258,7 @@ function HeaderContent() {
                   variant="text" 
                   component={Link}
                   href="/register"
-                  sx={{ ml: 1, color: '#ff6f00', fontWeight: 'bold', fontSize: '0.85rem' }}
+                  sx={{ ml: 1, color: '#ff8c00', fontWeight: 'bold', fontSize: '0.85rem' }}
                 >
                   Registrarse
                 </Button>
@@ -236,7 +311,7 @@ function HeaderContent() {
                   variant="text"
                   onClick={() => setLoginModalOpen(true)}
                   sx={{ 
-                    color: '#ff6f00', 
+                    color: '#ff8c00', 
                     fontWeight: 'bold', 
                     fontSize: '0.75rem',
                     minWidth: 'auto',
@@ -251,7 +326,7 @@ function HeaderContent() {
                   component={Link}
                   href="/register"
                   sx={{ 
-                    color: '#ff6f00', 
+                    color: '#ff8c00', 
                     fontWeight: 'bold', 
                     fontSize: '0.75rem',
                     minWidth: 'auto',
@@ -305,31 +380,36 @@ function HeaderContent() {
         <Box sx={{ width: '100%', height: '100%', px: 3, pt: 3 }}>
           {/* Links de navegación - Todas las páginas sin separación */}
           <List sx={{ p: 0 }}>
-            {[...navItems, ...navItemsBottom].map((item) => (
-              <ListItem key={item.label} disablePadding sx={{ mb: 0 }}>
-                <ListItemButton 
-                  onClick={() => handleMobileNavClick(item.href)}
-                  sx={{
-                    px: 2,
-                    py: 2,
-                    borderRadius: 0,
-                    '&:hover': {
-                      backgroundColor: 'rgba(0, 0, 0, 0.04)'
-                    }
-                  }}
-                >
-                  <ListItemText 
-                    primary={item.label} 
-                    primaryTypographyProps={{
-                      fontWeight: 'bold',
-                      fontSize: '0.813rem',
-                      color: '#333',
-                      letterSpacing: '0.5px'
+            {[...navItems, ...navItemsBottom].map((item) => {
+              const isActive = currentPath === item.href;
+              const isOrangeItem = item.label === 'CONSULTORIA' || item.label === 'COPILOTO';
+              
+              return (
+                <ListItem key={item.label} disablePadding sx={{ mb: 0 }}>
+                  <ListItemButton 
+                    onClick={() => handleMobileNavClick(item.href)}
+                    sx={{
+                      px: 2,
+                      py: 2,
+                      borderRadius: 0,
+                      '&:hover': {
+                        backgroundColor: 'rgba(0, 0, 0, 0.04)'
+                      }
                     }}
-                  />
-                </ListItemButton>
-              </ListItem>
-            ))}
+                  >
+                    <ListItemText 
+                      primary={item.label} 
+                      primaryTypographyProps={{
+                        fontWeight: 'bold',
+                        fontSize: '0.813rem',
+                        color: isActive && isOrangeItem ? '#ff8c00' : '#333',
+                        letterSpacing: '0.5px'
+                      }}
+                    />
+                  </ListItemButton>
+                </ListItem>
+              );
+            })}
           </List>
         </Box>
       </Drawer>

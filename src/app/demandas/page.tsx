@@ -75,10 +75,10 @@ const DemandsNavigation = () => {
             }}
             onClick={handleCompaniesClick}
           >
-            <Typography variant="h6" sx={{ color: '#ff6f00', fontWeight: 'bold', fontSize: '1.1rem' }}>
+            <Typography variant="h6" sx={{ color: '#ff8c00', fontWeight: 'bold', fontSize: '1.1rem' }}>
               EMPRESAS
             </Typography>
-            <Chip label="14,975" size="small" sx={{ backgroundColor: '#ff6f00', color: 'white', fontWeight: 'bold' }} />
+            <Chip label="14,975" size="small" sx={{ backgroundColor: '#ff8c00', color: 'white', fontWeight: 'bold' }} />
           </Box>
         </Box>
       </Container>
@@ -299,7 +299,7 @@ const DemandsList = () => {
                 )}
                 
                 {demand.isPremium && (
-                  <StarIcon sx={{ color: '#ff6f00', fontSize: '1.2rem' }} />
+                  <StarIcon sx={{ color: '#ff8c00', fontSize: '1.2rem' }} />
                 )}
               </Box>
 

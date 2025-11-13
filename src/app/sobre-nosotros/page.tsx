@@ -10,10 +10,15 @@ import {
   Link as MuiLink,
 } from '@mui/material';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import Image from 'next/image';
 
 // --- SECCIÓN 1: SOBRE NOSOTROS (TEXTO) ---
 const AboutSection = () => (
-  <Box sx={{ py: 8, backgroundColor: '#f9f9f9' }}>
+  <Box sx={{ 
+    py: 8, 
+    pt: { xs: 'calc(60px + 12vh)', md: 'calc(64px + 12vh)' },
+    backgroundColor: '#f9f9f9' 
+  }}>
     <Container maxWidth="lg">
       <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 4 }}>
         {/* Columna Izquierda con el contenido (ahora más ancha) */}
@@ -84,19 +89,24 @@ const TeamSection = () => {
             </Box>
           </Box>
           
-          {/* Columna Derecha: Mapa (Placeholder) (ahora más estrecha) */}
+          {/* Columna Derecha: Mapa de Colombia */}
           <Box sx={{ flex: 1, width: '100%' }}>
             <Box sx={{
-              height: { xs: 300, md: 400 },
+              height: { xs: 600, md: 800 },
+              position: 'relative',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              backgroundColor: '#f0f0f0',
               borderRadius: '16px',
+              overflow: 'hidden'
             }}>
-              <Typography color="text.secondary">
-                Mapa Colombia 
-              </Typography>
+              <Image
+                src="https://media.istockphoto.com/id/1132067278/es/vector/mapa-de-colombia.jpg?s=612x612&w=0&k=20&c=dMrZKXA1_KILAhNBWjqvq61C3qtbDYJaYgYbiIWKkRU="
+                alt="Mapa de Colombia"
+                fill
+                style={{ objectFit: 'contain', borderRadius: '16px' }}
+                priority
+              />
             </Box>
           </Box>
         </Box>
@@ -108,7 +118,7 @@ const TeamSection = () => {
 // --- COMPONENTE PRINCIPAL DE LA PÁGINA ---
 export default function AboutUsPage() {
   return (
-    <main style={{ paddingTop: '64px' }}>
+    <main>
       <AboutSection />
       <TeamSection />
     </main>

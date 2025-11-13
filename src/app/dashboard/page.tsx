@@ -458,7 +458,7 @@ const ProviderKPIs = () => (
     
     <Box>
       <Card sx={{ 
-        background: 'linear-gradient(135deg, #ff6f00 0%, #ffb74d 100%)',
+        background: 'linear-gradient(135deg, #ff8c00 0%, #ffb74d 100%)',
         borderRadius: '16px',
         height: '100%',
         position: 'relative',
@@ -501,7 +501,7 @@ const ProviderKPIs = () => (
             endIcon={<AnalyticsIcon />}
             sx={{
               backgroundColor: 'white',
-              color: '#ff6f00',
+              color: '#ff8c00',
               borderRadius: '20px',
               textTransform: 'none',
               fontWeight: 'bold',
@@ -533,7 +533,7 @@ const QuickActions = ({ userType }: { userType: string }) => (
           fullWidth
           sx={{ 
             py: 2,
-            backgroundColor: '#ff6f00',
+            backgroundColor: '#ff8c00',
             color: 'white',
             '&:hover': {
               backgroundColor: '#e65100'
@@ -680,7 +680,7 @@ export default function DashboardPage() {
   return (
     <Box sx={{ 
       minHeight: '100vh', 
-      background: 'linear-gradient(135deg, #ff6f00 0%, #ff8f00 50%, #ffb74d 100%)',
+      background: 'linear-gradient(135deg, #ff8c00 0%, #ff8f00 50%, #ffb74d 100%)',
       paddingTop: '80px',
       position: 'relative',
       overflow: 'hidden'

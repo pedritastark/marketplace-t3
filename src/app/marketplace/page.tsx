@@ -29,16 +29,17 @@ import MarketplaceProducts from './components/MarketplaceProducts';
 const MarketplaceHero = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
   if (isLoggedIn) {
     return (
-      <Box
-        sx={{
-          backgroundColor: 'rgb(203, 247, 221)',
-          py: 4,
-          borderRadius: 3,
-          mx: 2,
-          my: 4,
-        }}
-      >
-        <Container maxWidth="lg" sx={{ px: 4 }}>
+      <Container maxWidth="xl" disableGutters>
+        <Box
+          sx={{
+            backgroundColor: 'rgb(203, 247, 221)',
+            py: 4,
+            borderRadius: 3,
+            mx: 4,
+            my: 4,
+            px: 4,
+          }}
+        >
           <Box sx={{ textAlign: 'center' }}>
             <Typography variant="h3" component="h1" sx={{ fontWeight: 'bold', color: '#2E7D32' }}>
               Marketplace Transforma3
@@ -47,25 +48,25 @@ const MarketplaceHero = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
               Explora ofertas y demandas de economía circular
             </Typography>
           </Box>
-        </Container>
-      </Box>
+        </Box>
+      </Container>
     );
   }
 
   return (
-  <Box
-    sx={{
-      backgroundColor: 'rgb(203, 247, 221)',
-      pt: 3,
-      pb: 2,
-      borderRadius: 3,
-      mx: 0,
-      my: 4,
-      px: 0,
-    }}
-  >
-    <Container maxWidth="lg" sx={{ px: 4 }}>
-      <Box sx={{ textAlign: 'left', mb: 4 }}>
+    <Container maxWidth="xl" disableGutters>
+      <Box
+        sx={{
+          backgroundColor: 'rgb(203, 247, 221)',
+          pt: 3,
+          pb: 2,
+          borderRadius: 3,
+          mx: 4,
+          my: 4,
+          px: 4,
+        }}
+      >
+        <Box sx={{ textAlign: 'left', mb: 4 }}>
         <Typography variant="h3" component="h1" sx={{ fontWeight: 'bold', color: '#000000', mb: 3, fontSize: '1.5rem' }}>
           Obtén el máximo de Transforma3 gratis
         </Typography>
@@ -132,9 +133,9 @@ const MarketplaceHero = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
             Recordarme más tarde
           </Typography>
         </Box>
+        </Box>
       </Box>
     </Container>
-  </Box>
   );
 };
 
@@ -151,9 +152,9 @@ const MarketplaceNavigation = () => {
   };
 
   return (
-    <Box sx={{ py: 3, backgroundColor: '#f7f7f7', borderBottom: '1px solid #e0e0e0' }}>
-      <Container maxWidth="lg">
-        <Box sx={{ display: 'flex', gap: 6, alignItems: 'center', justifyContent: 'center' }}>
+    <Box sx={{ py: 3, backgroundColor: '#f7f7f7' }}>
+      <Container maxWidth="xl" disableGutters>
+        <Box sx={{ display: 'flex', gap: 6, alignItems: 'center', justifyContent: 'flex-start', px: 4 }}>
           {/* Página actual - OFERTAS (más grande) */}
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
             <Typography variant="h5" sx={{ color: '#2E7D32', fontWeight: 'bold', fontSize: '1.3rem' }}>
@@ -194,10 +195,10 @@ const MarketplaceNavigation = () => {
             }}
             onClick={handleEmpresasClick}
           >
-            <Typography variant="h6" sx={{ color: '#ff6f00', fontWeight: 'bold', fontSize: '1.1rem' }}>
+            <Typography variant="h6" sx={{ color: '#ff8c00', fontWeight: 'bold', fontSize: '1.1rem' }}>
               EMPRESAS
             </Typography>
-            <Chip label="14,975" size="small" sx={{ backgroundColor: '#ff6f00', color: 'white', fontWeight: 'bold' }} />
+            <Chip label="14,975" size="small" sx={{ backgroundColor: '#ff8c00', color: 'white', fontWeight: 'bold' }} />
           </Box>
         </Box>
       </Container>
@@ -300,16 +301,16 @@ const MarketplaceFilters = () => {
   };
 
   return (
-    <Box sx={{ mx: 2 }}>
+    <Container maxWidth="xl" disableGutters>
       <Box sx={{ 
         borderTop: '1px solid #616161', 
         borderBottom: '1px solid #616161', 
         py: 1.5,
-        px: 4,
+        px: 0,
+        mx: 4,
         backgroundColor: '#f5f5f5',
         borderRadius: 1
       }}>
-        <Container maxWidth="lg">
           <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap', alignItems: 'center', justifyContent: 'flex-start' }}>
           <Box sx={{ position: 'relative' }}>
             <Button
@@ -616,9 +617,8 @@ const MarketplaceFilters = () => {
             </Button>
           </Box>
         )}
-      </Container>
       </Box>
-    </Box>
+    </Container>
   );
 };
 
@@ -628,11 +628,8 @@ export default function MarketplacePage() {
   
   return (
     <main style={{ paddingTop: '64px', backgroundColor: '#f7f7f7', minHeight: '100vh' }}>
-      <Container maxWidth="lg">
-        <MarketplaceHero isLoggedIn={!!user} />
-      </Container>
-      
       <MarketplaceNavigation />
+      <MarketplaceHero isLoggedIn={!!user} />
       <MarketplaceFilters />
       <MarketplaceProducts />
     </main>

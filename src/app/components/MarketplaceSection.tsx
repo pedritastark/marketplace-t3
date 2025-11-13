@@ -13,11 +13,11 @@ import Link from 'next/link';
 export default function MarketplaceSection() {
   return (
     <Box sx={{ flexGrow: 1, p: { xs: 2, md: 6 }, backgroundColor: '#ffffff' }}>
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" sx={{ pl: { xs: '16px', md: '165px' } }}>
         <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 4, alignItems: 'center' }}>
           {/* Columna Izquierda: Texto y Botones */}
           <Box sx={{ flex: 1, order: { xs: 1, md: 1 } }}>
-            <Typography variant="h6" sx={{ color: '#ff6f00', fontWeight: 'bold' }}>
+            <Typography variant="h6" sx={{ color: '#ff8c00', fontWeight: 'bold' }}>
               Quiero comprar y vender recursos por mi cuenta<span style={{ color: '#4CAF50' }}>.</span>
             </Typography>
             <Typography variant="h3" component="h2" gutterBottom sx={{ fontWeight: 'bold', mt: 1, color: '#4d2a00' }}>
@@ -36,9 +36,9 @@ export default function MarketplaceSection() {
                 component={Link}
                 href="/marketplace"
                 sx={{
-                  backgroundColor: '#ff6f00',
+                  backgroundColor: '#ff8c00',
                   color: 'white',
-                  '&:hover': { backgroundColor: '#e66000' },
+                  '&:hover': { backgroundColor: '#e67e00' },
                   borderRadius: '8px',
                   padding: '10px 20px',
                   fontWeight: 'bold',

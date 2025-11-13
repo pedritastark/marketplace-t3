@@ -33,9 +33,9 @@ const FinalCTA = () => (
         variant="contained"
         size="large"
         sx={{
-          backgroundColor: '#ff6f00',
+          backgroundColor: '#ff8c00',
           color: 'white',
-          '&:hover': { backgroundColor: '#e66000' },
+          '&:hover': { backgroundColor: '#e67e00' },
           fontWeight: 'bold',
           boxShadow: 'none',
         }}
@@ -48,7 +48,7 @@ const FinalCTA = () => (
 
 export default function CopilotPage() {
   return (
-    <div style={{ marginTop: '-64px' }}>
+    <div>
       <CopilotHero />
       <WhyChooseCopilot />
       <SolutionSection />

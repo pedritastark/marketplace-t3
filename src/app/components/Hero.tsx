@@ -21,7 +21,7 @@ export default function HomeHero() {
       sx={{
         position: 'relative',
         width: '100vw', // Ocupa todo el ancho de la ventana
-        height: 'calc(100vh - 56px)', // Ocupa toda la altura menos la altura del header
+        height: { xs: '70vh', md: '100vh' }, // Más corto en móvil, completo en desktop
         overflow: 'hidden', // Asegura que el GIF no se desborde
         display: 'flex',
         flexDirection: 'column',
@@ -29,8 +29,8 @@ export default function HomeHero() {
         alignItems: 'flex-start', // Cambiado de 'center' a 'flex-start' para alinear a la izquierda
         color: 'white', // Color del texto principal
         textAlign: 'left', // Cambiado de 'center' a 'left'
-        paddingLeft: { xs: '16px', md: 'calc((100vw - 1200px) / 2 + 16px)' }, // Ajustado para coincidir con Container maxWidth="lg"
-        paddingTop: '15%', // Agregado padding superior para posicionar el contenido más arriba
+        paddingLeft: { xs: '16px', md: '165px' }, // Margen izquierdo en desktop
+        paddingTop: { xs: 'calc(60px + 12vh)', md: 'calc(64px + 12vh)' }, // Margen superior en desktop
       }}
     >
       {/* GIF de Fondo */}
@@ -51,28 +51,46 @@ export default function HomeHero() {
       />
 
       {/* Contenedor para el contenido limitado a la mitad izquierda */}
-      <Box sx={{ width: '50%', maxWidth: '50%' }}>
+      <Box sx={{ width: { xs: '100%', md: '50%' }, maxWidth: { xs: '100%', md: '50%' }, pr: { xs: 2, md: 0 } }}>
         {/* Mensaje Principal */}
-        <Typography variant="h3" component="h1" gutterBottom sx={{ fontWeight: 'bold', textAlign: 'left', color: 'white' }}>
+        <Typography 
+          variant="h3" 
+          component="h1" 
+          gutterBottom 
+          sx={{ 
+            fontWeight: 'bold', 
+            textAlign: 'left', 
+            color: 'white',
+            fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem', lg: '3.5rem' }
+          }}
+        >
           Soluciones de reciclaje y gestión de residuos para tu circularidad<span style={{ color: '#f44336' }}>.</span>
         </Typography>
 
         {/* Contenedor de Botones y Texto */}
-        <Box sx={{ mt: 4, display: 'flex', alignItems: 'center', gap: 2 }}>
+        <Box sx={{ 
+          mt: 4, 
+          display: 'flex', 
+          flexDirection: { xs: 'column', md: 'row' },
+          alignItems: { xs: 'flex-start', md: 'center' }, 
+          gap: 2 
+        }}>
           {/* Botón "Agenda una consulta gratis" */}
           <Button
             variant="contained"
             onClick={handleOpenModal}
             sx={{
-              backgroundColor: '#ff6f00', // Naranja
+              backgroundColor: '#ff8c00', // Naranja
               color: 'white',
               fontWeight: 'bold',
-              fontSize: '1.1rem',
-              padding: '12px 25px',
+              fontSize: { xs: '1rem', md: '1.1rem' },
+              padding: { xs: '16px 32px', md: '12px 25px' },
               borderRadius: '8px',
               boxShadow: 'none', // Quitar sombra
+              width: { xs: '100%', md: 'auto' },
+              maxWidth: { xs: '400px', md: 'none' },
               '&:hover': {
-                backgroundColor: '#e66000', // Naranja más oscuro al pasar el ratón
+                backgroundColor: '#e67e00', // Naranja más oscuro al pasar el ratón
                 boxShadow: 'none', // Quitar sombra en hover
               },
             }}
@@ -81,7 +99,7 @@ export default function HomeHero() {
           </Button>
 
           {/* Texto "Regístrese" */}
-          <Typography variant="body1" sx={{ color: 'white', fontSize: '1.2rem' }}>
+          <Typography variant="body1" sx={{ color: 'white', fontSize: { xs: '1rem', md: '1.2rem' }, fontWeight: 'bold' }}>
             <Link href="/register" passHref style={{ color: 'white', textDecoration: 'none', fontWeight: 'bold' }}>
               Regístrate
             </Link>

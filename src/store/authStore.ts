@@ -81,14 +81,14 @@ export const useAuthStore = create<AuthState>()(
       
       setAuth: (token, user) => {
         if (typeof window !== 'undefined') {
-          localStorage.setItem('token', token);
+        localStorage.setItem('token', token);
         }
         set({ token, user, error: null });
       },
       
       logout: () => {
         if (typeof window !== 'undefined') {
-          localStorage.removeItem('token');
+        localStorage.removeItem('token');
         }
         set({ token: null, user: null, error: null });
       },

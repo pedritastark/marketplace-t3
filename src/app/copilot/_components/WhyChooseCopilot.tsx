@@ -32,7 +32,7 @@ export default function WhyChooseCopilot() {
         </Box>
         <Box sx={{ flex: { md: 5 }, textAlign: 'center', width: '100%' }}>
           <Typography variant="h6">Efecto Potencial:</Typography>
-          <Typography variant="h2" sx={{ fontWeight: 'bold', color: '#ff6f00' }}>10-30%</Typography>
+          <Typography variant="h2" sx={{ fontWeight: 'bold', color: '#ff8c00' }}>10-30%</Typography>
           <Typography variant="body1" color="text.secondary">de ahorro en costos</Typography>
         </Box>
       </Box>

@@ -35,11 +35,11 @@ export default function CopilotSection() {
         }}
       />
 
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" sx={{ pl: { xs: '16px', md: '165px' } }}>
         <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 4, alignItems: 'center' }}>
           {/* Columna Izquierda: Texto y Botones */}
           <Box sx={{ flex: 1, order: { xs: 1, md: 1 } }}>
-            <Typography variant="h6" sx={{ color: '#ff6f00', fontWeight: 'bold' }}>
+            <Typography variant="h6" sx={{ color: '#ff8c00', fontWeight: 'bold' }}>
               Necesito un socio en gestión de residuos<span style={{ color: '#f44336' }}>.</span>
             </Typography>
             <Typography variant="h3" component="h2" gutterBottom sx={{ fontWeight: 'bold', mt: 1, color: 'white' }}>
@@ -56,9 +56,9 @@ export default function CopilotSection() {
               <Button
                 variant="contained"
                 sx={{
-                  backgroundColor: '#ff6f00',
+                  backgroundColor: '#ff8c00',
                   color: 'white',
-                  '&:hover': { backgroundColor: '#e66000' },
+                  '&:hover': { backgroundColor: '#e67e00' },
                   borderRadius: '8px',
                   padding: '10px 20px',
                   fontWeight: 'bold',

@@ -27,13 +27,13 @@ export default function ConsultingSection() {
         <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 4, alignItems: 'center' }}>
           {/* Columna Izquierda: Texto y Botones */}
           <Box sx={{ flex: 1, order: { xs: 1, md: 1 } }}>
-            <Typography variant="h6" sx={{ color: '#ff6f00', fontWeight: 'bold' }}>
+            <Typography variant="h6" sx={{ color: '#ff8c00', fontWeight: 'bold' }}>
               Busco ayuda con mi circularidad<span style={{ color: '#f44336' }}>.</span>
             </Typography>
             <Typography variant="h3" component="h2" gutterBottom sx={{ fontWeight: 'bold', mt: 1, color: '#4d2a00' }}>
               Consultoría T3<span style={{ color: '#f44336' }}>.</span>
             </Typography>
-            <Typography variant="body1" color="text.secondary" sx={{ mb: 4 }}>
+            <Typography variant="body1" sx={{ mb: 4, color: '#000000' }}>
               Optimiza tu gestión de residuos con servicios de consultoría a medida, desde el Análisis Circular de Residuos hasta el Sourcing Verde. Te ayudamos a reducir costos, potenciar la eficiencia de los recursos y alcanzar el pleno cumplimiento normativo. Convierte tus metas de sostenibilidad en un éxito medible con nuestro enfoque innovador y circular.
             </Typography>
 
@@ -42,17 +42,34 @@ export default function ConsultingSection() {
             </Typography>
             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mb: 4 }}>
               {industries.map((industry) => (
-                <Chip key={industry} label={industry} variant="outlined" component="a" href="#" clickable />
+                <Chip 
+                  key={industry} 
+                  label={industry} 
+                  variant="outlined" 
+                  component="a" 
+                  href="#" 
+                  clickable 
+                  sx={{ 
+                    borderColor: '#000000',
+                    color: '#000000',
+                    borderRadius: '8px',
+                    fontWeight: 'bold',
+                    '& .MuiChip-label': {
+                      fontWeight: 'bold'
+                    },
+                    '&:hover': { borderColor: '#000000', backgroundColor: 'rgba(0, 0, 0, 0.04)' }
+                  }}
+                />
               ))}
             </Box>
 
-            <Box sx={{ display: 'flex', gap: 2 }}>
+            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 2, alignItems: 'flex-start' }}>
               <Button
                 variant="contained"
                 sx={{
-                  backgroundColor: '#ff6f00',
+                  backgroundColor: '#ff8c00',
                   color: 'white',
-                  '&:hover': { backgroundColor: '#e66000' },
+                  '&:hover': { backgroundColor: '#e67e00' },
                   borderRadius: '8px',
                   padding: '10px 20px',
                   fontWeight: 'bold',

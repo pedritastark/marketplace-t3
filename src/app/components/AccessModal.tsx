@@ -85,10 +85,10 @@ const AccessModal: React.FC<AccessModalProps> = ({ open, handleClose, onOpenLogi
               gap: 1,
               '&:hover': {
                 backgroundColor: 'transparent',
-                color: '#ff6f00',
+                color: '#ff8c00',
                 textDecoration: 'none',
                 '& .MuiSvgIcon-root': {
-                  color: '#ff6f00'
+                  color: '#ff8c00'
                 }
               }
             }}

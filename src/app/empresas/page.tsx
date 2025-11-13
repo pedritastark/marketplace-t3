@@ -57,14 +57,14 @@ const CompaniesNavigation = () => {
         <Box sx={{ display: 'flex', gap: 4, alignItems: 'center' }}>
           {/* Página actual - EMPRESAS (más grande) */}
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-            <Typography variant="h5" sx={{ color: '#ff6f00', fontWeight: 'bold', fontSize: '1.3rem' }}>
+            <Typography variant="h5" sx={{ color: '#ff8c00', fontWeight: 'bold', fontSize: '1.3rem' }}>
               EMPRESAS
             </Typography>
             <Chip 
               label="14,975" 
               size="small" 
               sx={{ 
-                backgroundColor: '#ff6f00',
+                backgroundColor: '#ff8c00',
                 color: 'white',
                 fontWeight: 'bold'
               }} 
@@ -638,15 +638,15 @@ const CompaniesFilters = () => {
             
             <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
               <FormControlLabel
-                control={<Checkbox sx={{ color: 'white', '&.Mui-checked': { color: '#ff6f00' } }} />}
+                control={<Checkbox sx={{ color: 'white', '&.Mui-checked': { color: '#ff8c00' } }} />}
                 label={<Typography variant="body2" sx={{ color: 'white', fontSize: '0.8rem' }}>COMPRADORES DE PLÁSTICO REGRANULADO</Typography>}
               />
               <FormControlLabel
-                control={<Checkbox sx={{ color: 'white', '&.Mui-checked': { color: '#ff6f00' } }} />}
+                control={<Checkbox sx={{ color: 'white', '&.Mui-checked': { color: '#ff8c00' } }} />}
                 label={<Typography variant="body2" sx={{ color: 'white', fontSize: '0.8rem' }}>FABRICANTES DE PLÁSTICO</Typography>}
               />
               <FormControlLabel
-                control={<Checkbox sx={{ color: 'white', '&.Mui-checked': { color: '#ff6f00' } }} />}
+                control={<Checkbox sx={{ color: 'white', '&.Mui-checked': { color: '#ff8c00' } }} />}
                 label={<Typography variant="body2" sx={{ color: 'white', fontSize: '0.8rem' }}>RECICLADORES CERTIFICADOS</Typography>}
               />
             </Box>
@@ -874,7 +874,7 @@ const CompaniesList = () => {
                         <Star 
                           key={i} 
                           sx={{ 
-                            color: i < company.rating ? '#ff6f00' : '#e0e0e0',
+                            color: i < company.rating ? '#ff8c00' : '#e0e0e0',
                             fontSize: '1.1rem'
                           }} 
                         />
@@ -932,7 +932,7 @@ const CompaniesList = () => {
                             variant="text"
                             startIcon={<Lock />}
                             sx={{ 
-                              color: '#ff6f00', 
+                              color: '#ff8c00', 
                               textTransform: 'none',
                               fontWeight: 'bold'
                             }}
@@ -1052,7 +1052,7 @@ const CompaniesList = () => {
                     variant="text"
                     endIcon={<ExpandMore />}
                     sx={{ 
-                      color: '#ff6f00', 
+                      color: '#ff8c00', 
                       textTransform: 'none',
                       fontWeight: 'bold',
                       alignSelf: 'flex-start',

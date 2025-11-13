@@ -16,6 +16,7 @@ export default function CopilotHero() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+        pt: { xs: 'calc(60px + 12vh)', md: 'calc(64px + 12vh)' },
         minHeight: '70vh',
         color: 'white',
         textAlign: 'center',
@@ -52,9 +53,9 @@ export default function CopilotHero() {
           variant="contained"
           size="large"
           sx={{
-            backgroundColor: '#ff6f00',
+            backgroundColor: '#ff8c00',
             color: 'white',
-            '&:hover': { backgroundColor: '#e66000' },
+            '&:hover': { backgroundColor: '#e67e00' },
             fontWeight: 'bold',
             boxShadow: 'none',
           }}

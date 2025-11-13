@@ -121,10 +121,10 @@ const MarketplaceNavigation = () => (
     <Container maxWidth="lg">
       <Box sx={{ display: 'flex', gap: 4, alignItems: 'center' }}>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-          <Typography variant="h6" sx={{ color: '#ff6f00', fontWeight: 'bold' }}>
+          <Typography variant="h6" sx={{ color: '#ff8c00', fontWeight: 'bold' }}>
             MARKETPLACE
           </Typography>
-          <Chip label="320" size="small" sx={{ backgroundColor: '#ff6f00', color: 'white' }} />
+          <Chip label="320" size="small" sx={{ backgroundColor: '#ff8c00', color: 'white' }} />
         </Box>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
           <Typography variant="h6" sx={{ color: '#2E7D32', fontWeight: 'bold' }}>
@@ -133,10 +133,10 @@ const MarketplaceNavigation = () => (
           <Chip label="426" size="small" sx={{ backgroundColor: '#2E7D32', color: 'white' }} />
         </Box>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-          <Typography variant="h6" sx={{ color: '#ff6f00', fontWeight: 'bold' }}>
+          <Typography variant="h6" sx={{ color: '#ff8c00', fontWeight: 'bold' }}>
             DEMANDAS
           </Typography>
-          <Chip label="28" size="small" sx={{ backgroundColor: '#ff6f00', color: 'white' }} />
+          <Chip label="28" size="small" sx={{ backgroundColor: '#ff8c00', color: 'white' }} />
         </Box>
       </Box>
     </Container>
