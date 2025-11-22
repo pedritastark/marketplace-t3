@@ -22,15 +22,15 @@ const industries = [
 
 export default function ConsultingSection() {
   return (
-    <Box sx={{ flexGrow: 1, p: { xs: 2, md: 6 }, backgroundColor: '#ffffff' }}>
-      <Container maxWidth="lg">
+    <Box sx={{ flexGrow: 1, pt: { xs: 2, md: 3 }, pb: { xs: 2, md: 3 }, pl: { xs: '16px', md: '125px' }, pr: { xs: 2, md: 6 }, backgroundColor: '#ffffff' }}>
+      <Container maxWidth="lg" sx={{ pl: 0, pr: 0 }}>
         <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 4, alignItems: 'center' }}>
           {/* Columna Izquierda: Texto y Botones */}
-          <Box sx={{ flex: 1, order: { xs: 1, md: 1 } }}>
-            <Typography variant="h6" sx={{ color: '#ff8c00', fontWeight: 'bold' }}>
+          <Box sx={{ flex: 1, order: { xs: 1, md: 1 }, pl: 0, ml: 0 }}>
+            <Typography variant="h6" sx={{ color: '#ff8c00', fontWeight: 'bold', margin: 0, padding: 0, marginLeft: 0, paddingLeft: 0 }}>
               Busco ayuda con mi circularidad<span style={{ color: '#f44336' }}>.</span>
             </Typography>
-            <Typography variant="h3" component="h2" gutterBottom sx={{ fontWeight: 'bold', mt: 1, color: '#4d2a00' }}>
+            <Typography variant="h3" component="h2" sx={{ fontWeight: 'bold', mt: 1, color: '#4d2a00', margin: 0, padding: 0, marginLeft: 0, paddingLeft: 0 }}>
               Consultoría T3<span style={{ color: '#f44336' }}>.</span>
             </Typography>
             <Typography variant="body1" sx={{ mb: 4, color: '#000000' }}>
@@ -65,6 +65,20 @@ export default function ConsultingSection() {
 
             <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 2, alignItems: 'flex-start' }}>
               <Button
+                variant="outlined"
+                sx={{
+                  borderColor: '#000000',
+                  color: '#000000',
+                  '&:hover': { borderColor: '#000000', backgroundColor: 'rgba(0, 0, 0, 0.04)' },
+                  borderRadius: '8px',
+                  padding: '10px 20px',
+                  fontWeight: 'bold',
+                  order: { xs: 1, md: 2 },
+                }}
+              >
+                Saber Más
+              </Button>
+              <Button
                 variant="contained"
                 sx={{
                   backgroundColor: '#ff8c00',
@@ -74,31 +88,19 @@ export default function ConsultingSection() {
                   padding: '10px 20px',
                   fontWeight: 'bold',
                   boxShadow: 'none',
+                  order: { xs: 2, md: 1 },
                 }}
               >
                 Hablar con Expertos
-              </Button>
-              <Button
-                variant="outlined"
-                sx={{
-                  borderColor: '#000000',
-                  color: '#000000',
-                  '&:hover': { borderColor: '#000000', backgroundColor: 'rgba(0, 0, 0, 0.04)' },
-                  borderRadius: '8px',
-                  padding: '10px 20px',
-                  fontWeight: 'bold',
-                }}
-              >
-                Saber Más
               </Button>
             </Box>
           </Box>
 
           {/* Columna Derecha: Imagen */}
-          <Box sx={{ flex: 1, order: { xs: 2, md: 2 } }}>
+          <Box sx={{ flex: 1, order: { xs: 2, md: 2 }, display: { xs: 'none', md: 'block' } }}>
             <Box sx={{ width: '100%', height: 'auto', position: 'relative' }}>
               <Image
-                src="/consulting-diagram.png"
+                src="/Consultoria-home.png"
                 alt="Diagrama de consultoría de economía circular"
                 width={600}
                 height={400}

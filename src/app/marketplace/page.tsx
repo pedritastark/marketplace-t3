@@ -35,9 +35,9 @@ const MarketplaceHero = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
             backgroundColor: 'rgb(203, 247, 221)',
             py: 4,
             borderRadius: 3,
-            mx: 4,
+            mx: { xs: 0, md: 4 },
             my: 4,
-            px: 4,
+            px: { xs: 2, md: 4 },
           }}
         >
           <Box sx={{ textAlign: 'center' }}>
@@ -61,9 +61,10 @@ const MarketplaceHero = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
           pt: 3,
           pb: 2,
           borderRadius: 3,
-          mx: 4,
+          ml: { xs: 2, md: 4 },
+          mr: { xs: 2, md: 4 },
           my: 4,
-          px: 4,
+          px: { xs: 2, md: 4 },
         }}
       >
         <Box sx={{ textAlign: 'left', mb: 4 }}>
@@ -106,7 +107,7 @@ const MarketplaceHero = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
           </Box>
         </Box>
         
-        <Box sx={{ display: 'flex', gap: 3, alignItems: 'center', flexWrap: 'wrap' }}>
+        <Box sx={{ display: 'flex', gap: 3, alignItems: 'center', flexWrap: 'wrap', justifyContent: { xs: 'center', md: 'flex-start' } }}>
           <Typography 
             component="a"
             href="/register"
@@ -154,51 +155,72 @@ const MarketplaceNavigation = () => {
   return (
     <Box sx={{ py: 3, backgroundColor: '#f7f7f7' }}>
       <Container maxWidth="xl" disableGutters>
-        <Box sx={{ display: 'flex', gap: 6, alignItems: 'center', justifyContent: 'flex-start', px: 4 }}>
-          {/* Página actual - OFERTAS (más grande) */}
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-            <Typography variant="h5" sx={{ color: '#2E7D32', fontWeight: 'bold', fontSize: '1.3rem' }}>
+        <Box sx={{ 
+          display: 'flex', 
+          flexDirection: { xs: 'column', md: 'row' },
+          gap: { xs: 2, md: 6 }, 
+          alignItems: { xs: 'flex-start', md: 'center' }, 
+          justifyContent: { xs: 'flex-start', md: 'center' }, 
+          px: { xs: 2, md: 4 }
+        }}>
+          {/* Parte superior en móvil: Elementos que NO son la página actual */}
+          <Box sx={{ 
+            display: 'flex', 
+            flexDirection: { xs: 'row', md: 'row' },
+            gap: { xs: 4, md: 6 },
+            order: { xs: 1, md: 0 },
+            justifyContent: { xs: 'flex-start', md: 'center' }
+          }}>
+            {/* DEMANDAS */}
+            <Box 
+              sx={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                gap: 1,
+                cursor: 'pointer',
+                '&:hover': {
+                  opacity: 0.8
+                }
+              }}
+              onClick={handleDemandasClick}
+            >
+              <Typography variant="h6" sx={{ color: '#1976d2', fontWeight: 'bold', fontSize: { xs: '1rem', md: '1.1rem' } }}>
+                DEMANDAS
+              </Typography>
+              <Chip label="28" size="small" sx={{ backgroundColor: '#1976d2', color: 'white', fontWeight: 'bold' }} />
+            </Box>
+            
+            {/* EMPRESAS */}
+            <Box 
+              sx={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                gap: 1,
+                cursor: 'pointer',
+                '&:hover': {
+                  opacity: 0.8
+                }
+              }}
+              onClick={handleEmpresasClick}
+            >
+              <Typography variant="h6" sx={{ color: '#ff8c00', fontWeight: 'bold', fontSize: { xs: '1rem', md: '1.1rem' } }}>
+                EMPRESAS
+              </Typography>
+              <Chip label="14,975" size="small" sx={{ backgroundColor: '#ff8c00', color: 'white', fontWeight: 'bold' }} />
+            </Box>
+          </Box>
+          
+          {/* Parte inferior en móvil: Página actual - OFERTAS (más grande) */}
+          <Box sx={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            gap: 1,
+            order: { xs: 2, md: 0 }
+          }}>
+            <Typography variant="h5" sx={{ color: '#2E7D32', fontWeight: 'bold', fontSize: { xs: '1.2rem', md: '1.3rem' } }}>
               OFERTAS
             </Typography>
             <Chip label="427" size="small" sx={{ backgroundColor: '#2E7D32', color: 'white', fontWeight: 'bold' }} />
-          </Box>
-          
-          {/* DEMANDAS */}
-          <Box 
-            sx={{ 
-              display: 'flex', 
-              alignItems: 'center', 
-              gap: 1,
-              cursor: 'pointer',
-              '&:hover': {
-                opacity: 0.8
-              }
-            }}
-            onClick={handleDemandasClick}
-          >
-            <Typography variant="h6" sx={{ color: '#1976d2', fontWeight: 'bold', fontSize: '1.1rem' }}>
-              DEMANDAS
-            </Typography>
-            <Chip label="28" size="small" sx={{ backgroundColor: '#1976d2', color: 'white', fontWeight: 'bold' }} />
-          </Box>
-          
-          {/* EMPRESAS */}
-          <Box 
-            sx={{ 
-              display: 'flex', 
-              alignItems: 'center', 
-              gap: 1,
-              cursor: 'pointer',
-              '&:hover': {
-                opacity: 0.8
-              }
-            }}
-            onClick={handleEmpresasClick}
-          >
-            <Typography variant="h6" sx={{ color: '#ff8c00', fontWeight: 'bold', fontSize: '1.1rem' }}>
-              EMPRESAS
-            </Typography>
-            <Chip label="14,975" size="small" sx={{ backgroundColor: '#ff8c00', color: 'white', fontWeight: 'bold' }} />
           </Box>
         </Box>
       </Container>
@@ -306,8 +328,8 @@ const MarketplaceFilters = () => {
         borderTop: '1px solid #616161', 
         borderBottom: '1px solid #616161', 
         py: 1.5,
-        px: 0,
-        mx: 4,
+        px: { xs: 2, md: 0 },
+        mx: { xs: 0, md: 4 },
         backgroundColor: '#f5f5f5',
         borderRadius: 1
       }}>

@@ -29,7 +29,7 @@ export default function HomeHero() {
         alignItems: 'flex-start', // Cambiado de 'center' a 'flex-start' para alinear a la izquierda
         color: 'white', // Color del texto principal
         textAlign: 'left', // Cambiado de 'center' a 'left'
-        paddingLeft: { xs: '16px', md: '165px' }, // Margen izquierdo en desktop
+        paddingLeft: { xs: '16px', md: '125px' }, // Margen izquierdo en desktop
         paddingTop: { xs: 'calc(60px + 12vh)', md: 'calc(64px + 12vh)' }, // Margen superior en desktop
       }}
     >
@@ -51,17 +51,21 @@ export default function HomeHero() {
       />
 
       {/* Contenedor para el contenido limitado a la mitad izquierda */}
-      <Box sx={{ width: { xs: '100%', md: '50%' }, maxWidth: { xs: '100%', md: '50%' }, pr: { xs: 2, md: 0 } }}>
+      <Box sx={{ width: { xs: '100%', md: '50%' }, maxWidth: { xs: '100%', md: '50%' }, pr: { xs: 2, md: 0 }, pl: 0, ml: 0 }}>
         {/* Mensaje Principal */}
         <Typography 
           variant="h3" 
           component="h1" 
-          gutterBottom 
           sx={{ 
             fontWeight: 'bold', 
             textAlign: 'left', 
             color: 'white',
-            fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem', lg: '3.5rem' }
+            fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem', lg: '3.5rem' },
+            margin: 0,
+            padding: 0,
+            marginLeft: 0,
+            paddingLeft: 0,
+            mb: 2
           }}
         >
           Soluciones de reciclaje y gestión de residuos para tu circularidad<span style={{ color: '#f44336' }}>.</span>

@@ -1,7 +1,7 @@
  'use client';
 
 import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { useAuthStore } from '../../store/authStore';
 import {
@@ -50,10 +50,10 @@ const navItemsBottom = [
 
 function HeaderContent() {
   const router = useRouter();
+  const pathname = usePathname();
   const { user, logout } = useAuthStore();
   const [isVisible, setIsVisible] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [currentPath, setCurrentPath] = useState('');
 
   // Estado para controlar la visibilidad del modal
   const [isLoginModalOpen, setLoginModalOpen] = useState(false);
@@ -66,31 +66,6 @@ function HeaderContent() {
 
     return () => clearTimeout(timer);
   }, []);
-
-  useEffect(() => {
-    // Detectar la ruta actual
-    if (typeof window !== 'undefined') {
-      setCurrentPath(window.location.pathname);
-      
-      // Escuchar cambios de ruta
-      const handleRouteChange = () => {
-        setCurrentPath(window.location.pathname);
-      };
-      
-      window.addEventListener('popstate', handleRouteChange);
-      
-      return () => {
-        window.removeEventListener('popstate', handleRouteChange);
-      };
-    }
-  }, []);
-
-  // Actualizar currentPath cuando cambie la ruta usando el router de Next.js
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setCurrentPath(window.location.pathname);
-    }
-  }, [router]);
 
   const handleDashboard = () => {
     router.push('/dashboard');
@@ -140,7 +115,7 @@ function HeaderContent() {
           {/* Menú de navegación - Desktop */}
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, ml: 4, alignItems: 'center' }}>
             {navItems.map((item) => {
-              const isActive = currentPath === item.href;
+              const isActive = pathname === item.href;
               const isOrangeItem = item.label === 'CONSULTORIA' || item.label === 'COPILOTO';
               
               return (
@@ -148,7 +123,6 @@ function HeaderContent() {
                   <Button
                     component={Link}
                     href={item.href}
-                    onClick={() => setCurrentPath(item.href)}
                     sx={{ 
                       color: isActive && isOrangeItem ? '#ff8c00' : 'black',
                       textTransform: 'none', 
@@ -185,7 +159,6 @@ function HeaderContent() {
                 key={item.label}
                 component={Link}
                 href={item.href}
-                onClick={() => setCurrentPath(item.href)}
                 sx={{ 
                   color: 'black', 
                   textTransform: 'none', 
@@ -381,7 +354,7 @@ function HeaderContent() {
           {/* Links de navegación - Todas las páginas sin separación */}
           <List sx={{ p: 0 }}>
             {[...navItems, ...navItemsBottom].map((item) => {
-              const isActive = currentPath === item.href;
+              const isActive = pathname === item.href;
               const isOrangeItem = item.label === 'CONSULTORIA' || item.label === 'COPILOTO';
               
               return (

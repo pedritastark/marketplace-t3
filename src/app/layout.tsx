@@ -46,7 +46,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Barrio&family=Bitcount+Prop+Double:wght@100..900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
       </head>
-      <body className={`${barrio.variable} ${libreBaskerville.variable} ${roboto.variable}`} style={{ fontFamily: '"Bitcount Prop Double", "Libre Baskerville", Barrio, Roboto, sans-serif' }}>
+      <body className={`${barrio.variable} ${libreBaskerville.variable} ${roboto.variable}`} style={{ fontFamily: '"Times New Roman", Times, serif' }}>
         <ThemeRegistry>
           <Header />
           <main>{children}</main>

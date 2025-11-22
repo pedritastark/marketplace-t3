@@ -53,11 +53,85 @@ const CompaniesNavigation = () => {
 
   return (
     <Box sx={{ py: 2 }}>
-      <Container maxWidth="lg">
-        <Box sx={{ display: 'flex', gap: 4, alignItems: 'center' }}>
-          {/* Página actual - EMPRESAS (más grande) */}
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-            <Typography variant="h5" sx={{ color: '#ff8c00', fontWeight: 'bold', fontSize: '1.3rem' }}>
+      <Container maxWidth="lg" sx={{ px: { xs: 2, md: 0 } }}>
+        <Box sx={{ 
+          display: 'flex', 
+          flexDirection: { xs: 'column', md: 'row' },
+          gap: { xs: 2, md: 4 }, 
+          alignItems: { xs: 'flex-start', md: 'center' },
+          justifyContent: { xs: 'flex-start', md: 'center' }
+        }}>
+          {/* Parte superior en móvil: Elementos que NO son la página actual */}
+          <Box sx={{ 
+            display: 'flex', 
+            flexDirection: { xs: 'row', md: 'row' },
+            gap: { xs: 4, md: 4 },
+            order: { xs: 1, md: 0 },
+            justifyContent: { xs: 'flex-start', md: 'center' }
+          }}>
+            {/* OFERTAS */}
+            <Box 
+              sx={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                gap: 1,
+                cursor: 'pointer',
+                '&:hover': {
+                  opacity: 0.8
+                }
+              }}
+              onClick={handleOffersClick}
+            >
+              <Typography variant="h6" sx={{ color: '#2E7D32', fontWeight: 'bold', fontSize: { xs: '1rem', md: '1.1rem' } }}>
+                OFERTAS
+              </Typography>
+              <Chip 
+                label="427" 
+                size="small" 
+                sx={{ 
+                  backgroundColor: '#2E7D32',
+                  color: 'white',
+                  fontWeight: 'bold'
+                }} 
+              />
+            </Box>
+            
+            {/* DEMANDAS */}
+            <Box 
+              sx={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                gap: 1,
+                cursor: 'pointer',
+                '&:hover': {
+                  opacity: 0.8
+                }
+              }}
+              onClick={handleDemandsClick}
+            >
+              <Typography variant="h6" sx={{ color: '#1976d2', fontWeight: 'bold', fontSize: { xs: '1rem', md: '1.1rem' } }}>
+                DEMANDAS
+              </Typography>
+              <Chip 
+                label="28" 
+                size="small" 
+                sx={{ 
+                  backgroundColor: '#1976d2', 
+                  color: 'white',
+                  fontWeight: 'bold'
+                }} 
+              />
+            </Box>
+          </Box>
+          
+          {/* Parte inferior en móvil: Página actual - EMPRESAS (más grande) */}
+          <Box sx={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            gap: 1,
+            order: { xs: 2, md: 0 }
+          }}>
+            <Typography variant="h5" sx={{ color: '#ff8c00', fontWeight: 'bold', fontSize: { xs: '1.2rem', md: '1.3rem' } }}>
               EMPRESAS
             </Typography>
             <Chip 
@@ -65,60 +139,6 @@ const CompaniesNavigation = () => {
               size="small" 
               sx={{ 
                 backgroundColor: '#ff8c00',
-                color: 'white',
-                fontWeight: 'bold'
-              }} 
-            />
-          </Box>
-          
-          {/* OFERTAS */}
-          <Box 
-            sx={{ 
-              display: 'flex', 
-              alignItems: 'center', 
-              gap: 1,
-              cursor: 'pointer',
-              '&:hover': {
-                opacity: 0.8
-              }
-            }}
-            onClick={handleOffersClick}
-          >
-            <Typography variant="h6" sx={{ color: '#2E7D32', fontWeight: 'bold', fontSize: '1.1rem' }}>
-              OFERTAS
-            </Typography>
-            <Chip 
-              label="427" 
-              size="small" 
-              sx={{ 
-                backgroundColor: '#2E7D32',
-                color: 'white',
-                fontWeight: 'bold'
-              }} 
-            />
-          </Box>
-          
-          {/* DEMANDAS */}
-          <Box 
-            sx={{ 
-              display: 'flex', 
-              alignItems: 'center', 
-              gap: 1,
-              cursor: 'pointer',
-              '&:hover': {
-                opacity: 0.8
-              }
-            }}
-            onClick={handleDemandsClick}
-          >
-            <Typography variant="h6" sx={{ color: '#1976d2', fontWeight: 'bold', fontSize: '1.1rem' }}>
-              DEMANDAS
-            </Typography>
-            <Chip 
-              label="28" 
-              size="small" 
-              sx={{ 
-                backgroundColor: '#1976d2', 
                 color: 'white',
                 fontWeight: 'bold'
               }} 
@@ -266,13 +286,13 @@ const CompaniesFilters = () => {
       py: 3,
       position: 'relative'
     }}>
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" sx={{ px: { xs: 2, md: 0 } }}>
         <Box sx={{ 
           backgroundColor: '#4d2a00',
           borderRadius: '20px',
-          px: 3,
+          px: { xs: 2, md: 3 },
           py: 2,
-          mx: 2
+          mx: { xs: 0, md: 2 }
         }}>
           <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap', alignItems: 'center' }}>
           {/* COMPRADORES/VENDEDORES */}
@@ -816,8 +836,8 @@ const CompaniesList = () => {
 
   return (
     <Box sx={{ py: 4 }}>
-      <Container maxWidth="lg">
-        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+      <Container maxWidth="lg" sx={{ px: { xs: 2, md: 0 } }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: { xs: 2, md: 3 } }}>
           {companies.map((company) => (
             <Card 
               key={company.id}
@@ -826,17 +846,24 @@ const CompaniesList = () => {
                 boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
                 '&:hover': {
                   boxShadow: '0 4px 16px rgba(0,0,0,0.15)',
-                  transform: 'translateY(-2px)',
+                  transform: { xs: 'none', md: 'translateY(-2px)' },
                   transition: 'all 0.3s ease'
                 }
               }}
             >
-              <CardContent sx={{ p: 3 }}>
-                <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 2 }}>
+              <CardContent sx={{ p: { xs: 2, md: 3 } }}>
+                <Box sx={{ 
+                  display: 'flex', 
+                  flexDirection: { xs: 'column', md: 'row' },
+                  justifyContent: 'space-between', 
+                  alignItems: { xs: 'flex-start', md: 'flex-start' }, 
+                  mb: 2,
+                  gap: { xs: 2, md: 0 }
+                }}>
                   {/* Información de la empresa */}
-                  <Box sx={{ flex: 1 }}>
+                  <Box sx={{ flex: 1, width: { xs: '100%', md: 'auto' } }}>
                     {/* Tags */}
-                    <Box sx={{ display: 'flex', gap: 1, mb: 2, flexWrap: 'wrap' }}>
+                    <Box sx={{ display: 'flex', gap: { xs: 0.5, md: 1 }, mb: { xs: 1.5, md: 2 }, flexWrap: 'wrap' }}>
                       {company.isVerified && (
                       <Chip 
                         icon={<CheckCircle />}
@@ -864,30 +891,35 @@ const CompaniesList = () => {
                     </Box>
 
                     {/* Nombre de la empresa */}
-                    <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1, letterSpacing: '0.1em', fontSize: '1.1rem' }}>
+                    <Typography variant="h6" sx={{ 
+                      fontWeight: 'bold', 
+                      mb: 1, 
+                      letterSpacing: '0.1em', 
+                      fontSize: { xs: '0.95rem', md: '1.1rem' }
+                    }}>
                       {isLoggedIn ? company.name : company.name.split('').map(() => '•').join('')}
                     </Typography>
 
                     {/* Rating */}
-                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, mb: 1 }}>
                       {[...Array(5)].map((_, i) => (
                         <Star 
                           key={i} 
                           sx={{ 
                             color: i < company.rating ? '#ff8c00' : '#e0e0e0',
-                            fontSize: '1.1rem'
+                            fontSize: { xs: '0.9rem', md: '1.1rem' }
                           }} 
                         />
                       ))}
                     </Box>
 
                     {/* Rol */}
-                    <Typography variant="body2" color="text.secondary" sx={{ mb: 2, fontSize: '0.9rem' }}>
+                    <Typography variant="body2" color="text.secondary" sx={{ mb: { xs: 1.5, md: 2 }, fontSize: { xs: '0.8rem', md: '0.9rem' } }}>
                       {company.role}
                     </Typography>
 
                     {/* Acciones */}
-                    <Box sx={{ display: 'flex', gap: 2, mb: 2 }}>
+                    <Box sx={{ display: 'flex', gap: { xs: 1, md: 2 }, mb: 2, flexWrap: 'wrap' }}>
                       {isLoggedIn ? (
                         <>
                           <Button
@@ -961,8 +993,13 @@ const CompaniesList = () => {
                   </Box>
 
                   {/* Estadísticas de la plataforma */}
-                  <Box sx={{ textAlign: 'right', minWidth: 200 }}>
-                    <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem' }}>
+                  <Box sx={{ 
+                    textAlign: { xs: 'left', md: 'right' }, 
+                    width: { xs: '100%', md: 'auto' },
+                    minWidth: { xs: 'auto', md: 200 },
+                    mt: { xs: 1, md: 0 }
+                  }}>
+                    <Typography variant="body2" color="text.secondary" sx={{ fontSize: { xs: '0.75rem', md: '0.9rem' } }}>
                       Negocios en la plataforma T3: activos <strong>{company.deals.active}</strong>, total <strong>{company.deals.total}</strong>, miembro desde <strong>{company.deals.memberSince}</strong>
                     </Typography>
                   </Box>

@@ -503,7 +503,7 @@ const TestimonialsSection = () => (
         content: '""',
         position: 'absolute',
         top: 0, left: 0, right: 0, bottom: 0,
-        backgroundImage: 'url(/../testimonial-bg.jpeg)',
+        backgroundImage: 'url(/Gemini_Generated_Image_9o9sij9o9sij9o9s.png)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         filter: 'brightness(0.5)',

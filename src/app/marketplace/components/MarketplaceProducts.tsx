@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import {
   Box,
   Typography,
@@ -12,6 +13,22 @@ import {
 import { Favorite, FavoriteBorder, Star } from '@mui/icons-material';
 import { useMarketplace } from '../../../hooks/useMarketplace';
 import { useAuthStore } from '../../../store/authStore';
+
+type Product = {
+  id: number;
+  title: string;
+  location?: string;
+  price?: number | null;
+  unit?: string | null;
+  quantity?: string | number;
+  rating?: number;
+  isNew?: boolean;
+  is_new?: boolean;
+  image?: string;
+  images?: string[];
+  isFavorited?: boolean;
+  is_favorited?: boolean;
+};
 
 // Mock data con 6 productos e imágenes de alta calidad
 const mockProducts = [
@@ -90,6 +107,7 @@ const mockProducts = [
 ];
 
 const MarketplaceProducts = () => {
+  const router = useRouter();
   const { posts, loading, error, toggleFavorite } = useMarketplace();
   const { user } = useAuthStore();
   const [favorites, setFavorites] = useState<Record<number, boolean>>({});
@@ -122,17 +140,19 @@ const MarketplaceProducts = () => {
 
   return (
     <Box sx={{ py: 4 }}>
-      <Container maxWidth="xl" disableGutters sx={{ px: 4 }}>
+      <Container maxWidth="xl" disableGutters sx={{ px: { xs: 2, md: 4 } }}>
         <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: 'repeat(2, 1fr)', lg: 'repeat(4, 1fr)' }, gap: 3 }}>
-          {displayProducts.map((product: any) => (
+          {displayProducts.map((product: Product) => (
             <Card 
               key={product.id} 
+              onClick={() => router.push(`/marketplace/${product.id}`)}
               sx={{ 
                 position: 'relative',
                 borderRadius: '12px',
                 overflow: 'hidden',
                 boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
                 transition: 'transform 0.2s, box-shadow 0.2s',
+                cursor: 'pointer',
                 '&:hover': {
                   transform: 'translateY(-4px)',
                   boxShadow: '0 4px 16px rgba(0,0,0,0.15)'
@@ -160,8 +180,9 @@ const MarketplaceProducts = () => {
                   position: 'absolute',
                   top: 8,
                   left: -8,
-                  backgroundColor: 'white',
+                  backgroundColor: 'rgb(255, 255, 255)',
                   borderRadius: '20px',
+                  boxShadow: '0 0px 8px rgba(0, 0, 0, 1)',
                   pl: 1.5,
                   pr: 1,
                   py: 0.3,
@@ -199,7 +220,10 @@ const MarketplaceProducts = () => {
 
                 {/* Favorite Icon */}
                 <IconButton
-                  onClick={() => handleToggleFavorite(product.id)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleToggleFavorite(product.id);
+                  }}
                   sx={{
                     position: 'absolute',
                     top: 6,
@@ -277,7 +301,7 @@ const MarketplaceProducts = () => {
                     color="text.secondary"
                     sx={{ fontSize: '0.81rem', color: '#666' }}
                   >
-                    {product.quantity}
+                    {typeof product.quantity === 'number' ? `${product.quantity}` : product.quantity || 'N/A'}
                   </Typography>
                 </Box>
               </Box>

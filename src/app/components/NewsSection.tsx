@@ -21,7 +21,7 @@ const newsArticles = [
     date: 'Junio 20, 2025',
     url: 'https://www.minambiente.gov.co/colombia-lanza-el-programa-basura-cero-para-transformar-la-gestion-de-residuos/',
     tags: ['Legislación', 'Colombia', 'Sostenibilidad'],
-    image: '/basura-cero.jpg',
+    image: '/basura-cero.png',
   },
   {
     title: 'El World Circular Economy Forum se celebra por primera vez en América Latina',
@@ -30,7 +30,7 @@ const newsArticles = [
     date: 'Abril 29, 2025',
     url: 'https://www.mundoexpopack.com/empaque-sostenible/article/22939813/world-circular-economy-forum-se-celebra-por-primera-vez-en-amrica-latina',
     tags: ['Eventos', 'LATAM', 'Sostenibilidad'],
-    image: '/news-wcef.png',
+    image: '/world.png',
   },
   {
     title: 'CDMX implementará nueva modalidad de recolección de basura por días diferenciados',
@@ -39,7 +39,7 @@ const newsArticles = [
     date: 'Agosto 28, 2025',
     url: 'https://www.infobae.com/mexico/2025/08/28/habra-nueva-modalidad-de-recoleccion-de-basura-en-cdmx-de-que-se-trata/',
     tags: ['Proyectos', 'México', 'Sostenibilidad'],
-    image: '/news-cdmx.avif',
+    image: '/CDMX.png',
   },
 ];
 
@@ -74,9 +74,9 @@ export default function NewsSection() {
   };
 
   return (
-    <Box sx={{ py: { xs: 4, md: 8 }, backgroundColor: '#f7f7f7' }}>
-      <Container maxWidth="lg" sx={{ pl: { xs: '16px', md: '165px' } }}>
-        <Typography variant="h3" component="h2" gutterBottom sx={{ fontWeight: 'bold', mb: 4, color: '#4d2a00' }}>
+    <Box sx={{ pt: { xs: 1, md: 5 }, pb: { xs: 1, md: 5 }, pl: { xs: '16px', md: '125px' }, pr: { xs: '16px', md: 6 }, backgroundColor: '#f7f7f7' }}>
+      <Container maxWidth="lg" sx={{ pl: 0, pr: 0 }}>
+        <Typography variant="h3" component="h2" sx={{ fontWeight: 'bold', mb: 4, color: '#4d2a00', margin: 0, padding: 0, marginLeft: 0, paddingLeft: 0 }}>
           Inspírate<span style={{ color: '#f44336' }}>.</span>
         </Typography>
         <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 4 }}>
@@ -85,8 +85,19 @@ export default function NewsSection() {
             <Box sx={{ display: 'flex', flexDirection: 'column' }}>
               {filteredNews.map((article, index) => (
                 <Box key={article.title}>
-                  <Box sx={{ display: 'flex', py: 3, borderBottom: index < filteredNews.length - 1 ? '1px solid #e0e0e0' : 'none' }}>
-                    <Box sx={{ width: '30%', flexShrink: 0, mr: 3 }}>
+                  <Box sx={{ 
+                    display: 'flex', 
+                    flexDirection: { xs: 'column', md: 'row' },
+                    py: 3,
+                    borderBottom: index < filteredNews.length - 1 ? '1px solid #e0e0e0' : 'none'
+                  }}>
+                    {/* Imagen - arriba en móvil, izquierda en desktop */}
+                    <Box sx={{ 
+                      width: { xs: '100%', md: '30%' }, 
+                      flexShrink: 0, 
+                      mr: { xs: 0, md: 3 },
+                      mb: { xs: 2, md: 0 }
+                    }}>
                       <Image
                         src={article.image || 'https://via.placeholder.com/150'}
                         alt={article.title}
@@ -95,18 +106,23 @@ export default function NewsSection() {
                         style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '8px' }}
                       />
                     </Box>
+                    {/* Contenido - debajo de imagen en móvil, derecha en desktop */}
                     <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+                      {/* Tags - debajo de imagen en móvil */}
                       <Box sx={{ display: 'flex', gap: 1, mb: 1 }}>
                         {article.tags.slice(0, 2).map(tag => <Chip key={tag} label={tag.toUpperCase()} size="small" variant="outlined" color="success" />)}
                       </Box>
+                      {/* Título */}
                       <Typography variant="h6" component="h3" sx={{ fontWeight: 'bold', mb: 1, color: '#4d2a00' }}>
                         <MuiLink href={article.url} target="_blank" rel="noopener noreferrer" underline="hover" color="inherit">
                           {article.title}
                         </MuiLink>
                       </Typography>
+                      {/* Descripción - corta en móvil, completa en desktop */}
                       <Typography variant="body2" color="text.secondary" sx={{ mb: 2, flexGrow: 1 }}>
                         {article.summary}
                       </Typography>
+                      {/* Fuente */}
                       <Typography variant="caption" color="text.secondary">
                         Fuente: {article.source} - {article.date}
                       </Typography>
@@ -133,7 +149,7 @@ export default function NewsSection() {
           </Box>
 
           {/* Columna Derecha: Filtros */}
-          <Box sx={{ flex: { xs: '1', md: '1' }, order: { xs: 2, md: 2 } }}>
+          <Box sx={{ flex: { xs: '1', md: '1' }, order: { xs: 2, md: 2 }, display: { xs: 'none', md: 'block' } }}>
             <Box sx={{ position: 'sticky', top: '24px' }}>
               <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 2, color: '#4d2a00' }}>
                 Clasificación

@@ -13,7 +13,7 @@ export default function CopilotSection() {
     <Box
       sx={{
         position: 'relative',
-        py: { xs: 6, md: 10 },
+        py: { xs: 3, md: 7 },
         color: 'white',
         overflow: 'hidden', // Asegura que el GIF no se desborde
       }}
@@ -35,14 +35,15 @@ export default function CopilotSection() {
         }}
       />
 
-      <Container maxWidth="lg" sx={{ pl: { xs: '16px', md: '165px' } }}>
+      <Box sx={{ pl: { xs: '16px', md: '125px' }, pr: { xs: '16px', md: 0 } }}>
+        <Container maxWidth="lg" sx={{ pl: 0, pr: 0 }}>
         <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 4, alignItems: 'center' }}>
           {/* Columna Izquierda: Texto y Botones */}
-          <Box sx={{ flex: 1, order: { xs: 1, md: 1 } }}>
-            <Typography variant="h6" sx={{ color: '#ff8c00', fontWeight: 'bold' }}>
+          <Box sx={{ flex: 1, order: { xs: 1, md: 1 }, pl: 0, ml: 0 }}>
+            <Typography variant="h6" sx={{ color: '#ff8c00', fontWeight: 'bold', margin: 0, padding: 0, marginLeft: 0, paddingLeft: 0 }}>
               Necesito un socio en gestión de residuos<span style={{ color: '#f44336' }}>.</span>
             </Typography>
-            <Typography variant="h3" component="h2" gutterBottom sx={{ fontWeight: 'bold', mt: 1, color: 'white' }}>
+            <Typography variant="h3" component="h2" sx={{ fontWeight: 'bold', mt: 1, color: 'white', margin: 0, padding: 0, marginLeft: 0, paddingLeft: 0 }}>
               Copiloto de Residuos T3<span style={{ color: '#f44336' }}>.</span>
             </Typography>
             <Typography variant="body1" sx={{ mb: 2 }}>
@@ -52,21 +53,7 @@ export default function CopilotSection() {
               Desde la logística y el cumplimiento de las últimas regulaciones hasta la prevención de residuos y el alineamiento con tus metas de sostenibilidad (ESG), estamos aquí para ayudarte a cumplir los más altos estándares en cada paso del camino.
             </Typography>
 
-            <Box sx={{ display: 'flex', gap: 2 }}>
-              <Button
-                variant="contained"
-                sx={{
-                  backgroundColor: '#ff8c00',
-                  color: 'white',
-                  '&:hover': { backgroundColor: '#e67e00' },
-                  borderRadius: '8px',
-                  padding: '10px 20px',
-                  fontWeight: 'bold',
-                  boxShadow: 'none',
-                }}
-              >
-                Agendar una Llamada
-              </Button>
+            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 2, alignItems: 'flex-start' }}>
               <Button
                 variant="contained" // Cambiado a 'contained' para el fondo blanco
                 sx={{
@@ -77,9 +64,25 @@ export default function CopilotSection() {
                   padding: '10px 20px',
                   fontWeight: 'bold',
                   boxShadow: 'none',
+                  order: { xs: 1, md: 2 },
                 }}
               >
                 Saber Más
+              </Button>
+              <Button
+                variant="contained"
+                sx={{
+                  backgroundColor: '#ff8c00',
+                  color: 'white',
+                  '&:hover': { backgroundColor: '#e67e00' },
+                  borderRadius: '8px',
+                  padding: '10px 20px',
+                  fontWeight: 'bold',
+                  boxShadow: 'none',
+                  order: { xs: 2, md: 1 },
+                }}
+              >
+                Agendar una Llamada
               </Button>
             </Box>
           </Box>
@@ -90,6 +93,7 @@ export default function CopilotSection() {
           </Box>
         </Box>
       </Container>
+      </Box>
     </Box>
   );
 }

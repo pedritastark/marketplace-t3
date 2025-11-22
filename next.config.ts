@@ -18,6 +18,10 @@ const nextConfig: NextConfig = {
         hostname: 'media.istockphoto.com',
         pathname: '/id/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
     ],
   },
 };

@@ -11,7 +11,37 @@ import NewsSection from './components/NewsSection';
 export default function HomePage() {
 
   return (
-    <div>
+    <div style={{ position: 'relative' }}>
+      {/* Línea guía vertical para alineación */}
+      <div
+        style={{
+          position: 'fixed',
+          left: '125px',
+          top: 0,
+          bottom: 0,
+          width: '1px',
+          backgroundColor: 'rgba(0, 0, 0, 0.2)',
+          zIndex: 1000,
+          pointerEvents: 'none',
+          display: 'none', // Oculto por defecto, se puede mostrar con display: 'block' para desarrollo
+        }}
+        className="guide-line-desktop"
+      />
+      <div
+        style={{
+          position: 'fixed',
+          left: '16px',
+          top: 0,
+          bottom: 0,
+          width: '1px',
+          backgroundColor: 'rgba(0, 0, 0, 0.2)',
+          zIndex: 1000,
+          pointerEvents: 'none',
+          display: 'none', // Oculto por defecto, se puede mostrar con display: 'block' para desarrollo
+        }}
+        className="guide-line-mobile"
+      />
+      
       {/* Hero Section - Justo debajo del header */}
       <HomeHero />
       

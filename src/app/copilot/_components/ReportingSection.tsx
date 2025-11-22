@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { Box, Typography, Container, Paper } from '@mui/material';
+import { Box, Typography, Container } from '@mui/material';
 import Image from 'next/image';
 
 
@@ -21,12 +21,13 @@ export default function ReportingSection() {
           </Typography>
         </Box>
         <Box sx={{ flex: 1, width: '100%' }}>
-          <Paper elevation={4} sx={{ borderRadius: '16px', overflow: 'hidden' }}>
-            <Image src="/copilot/reporting-diagram.png" alt="Diagrama de reportes" width={600} height={400} style={{ width: '100%', height: 'auto', display: 'block' }} />
-          </Paper>
+          <Box sx={{ borderRadius: '16px', overflow: 'hidden' }}>
+            <Image src="/report-diagram.png" alt="Diagrama de reportes" width={600} height={400} style={{ width: '100%', height: 'auto', display: 'block' }} />
+          </Box>
         </Box>
       </Box>
     </Container>
   </Box>
   );
 }
+
