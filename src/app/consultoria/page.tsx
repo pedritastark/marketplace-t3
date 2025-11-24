@@ -298,51 +298,51 @@ const IndustryExperience = () => {
       description: 'El mayor volumen de proyectos se ha realizado con la industria manufacturera, debido a los altos volúmenes de flujos de materiales secundarios generados en este sector. T3 ha encontrado soluciones para plásticos, metales, madera y químicos, resultando en ahorros financieros y una reducción significativa de la huella de CO2.',
       savings: { euros: '1,300,000', co2: '600' },
       examples: [
-        { image: '/consultoria/industria-ejemplo-1.jpg', alt: 'Cables y residuos', caption: 'Ahorros descubiertos en cables y residuos peligrosos.' },
-        { image: '/consultoria/industria-ejemplo-2.jpg', alt: 'Filtros de papel', caption: 'Filtros de papel y cigarrillos en nuevos productos.' },
+        { image: '/consultoria.png', alt: 'Cables y residuos', caption: 'Ahorros descubiertos en cables y residuos peligrosos.' },
+        { image: '/consultoria.png', alt: 'Filtros de papel', caption: 'Filtros de papel y cigarrillos en nuevos productos.' },
       ],
     },
     'metal-production': {
       description: 'En nuestros proyectos previos para clientes con enfoque o vinculación directa con la producción de fundición, T3 ha buscado soluciones para muchos tipos de materiales residuales, incluyendo arenas de fundición, varios tipos de abrasivos y Big Bags de Polipropileno.',
       savings: { euros: '850,000', co2: '420' },
       examples: [
-        { image: '/consultoria/metal-ejemplo-1.jpg', alt: 'Componentes metálicos', caption: '37,000€ por año ahorrados para NIDEC embraco al encontrar valor en empaques.' },
-        { image: '/consultoria/metal-ejemplo-2.jpg', alt: 'Virutas metálicas', caption: 'Desafíos de residuos del sector manufacturero - lodos metálicos y líquidos acuosos.' },
+        { image: '/consultoria.png', alt: 'Componentes metálicos', caption: '37,000€ por año ahorrados para NIDEC embraco al encontrar valor en empaques.' },
+        { image: '/consultoria.png', alt: 'Virutas metálicas', caption: 'Desafíos de residuos del sector manufacturero - lodos metálicos y líquidos acuosos.' },
       ],
     },
     'glass-production': {
       description: 'T3 ha trabajado con fabricantes de vidrio ayudándoles a encontrar nuevas oportunidades de valorización para sus residuos de producción, incluyendo vidrio roto, mezclas de vidrio y materiales de desecho del proceso de fabricación.',
       savings: { euros: '620,000', co2: '380' },
       examples: [
-        { image: '/consultoria/glass-ejemplo-1.jpg', alt: 'Vidrio reciclado', caption: 'Reutilización de vidrio roto en nuevos productos.' },
+        { image: '/consultoria.png', alt: 'Vidrio reciclado', caption: 'Reutilización de vidrio roto en nuevos productos.' },
       ],
     },
     'food-beverage': {
       description: 'Desde valorizar granos de café usados y convertirlos en tazas de café, hasta trabajar con una de las cervecerías más grandes de Colombia y encontrar soluciones para etiquetas desechadas, el equipo de T3 puede hacerlo todo.',
       savings: { euros: '140,000', co2: '60' },
       examples: [
-        { image: '/consultoria/food-ejemplo-1.jpg', alt: 'Botellas plásticas', caption: 'Valorización de botellas plásticas de bebidas.' },
+        { image: '/consultoria.png', alt: 'Botellas plásticas', caption: 'Valorización de botellas plásticas de bebidas.' },
       ],
     },
     'retail-warehouses': {
       description: 'T3 ha colaborado con empresas de retail y almacenes para optimizar sus flujos de materiales secundarios, encontrando soluciones para empaques, cartones, plásticos y otros materiales generados en operaciones de almacén.',
       savings: { euros: '950,000', co2: '480' },
       examples: [
-        { image: '/consultoria/retail-ejemplo-1.jpg', alt: 'Empaques de retail', caption: 'Recuperación de valor en empaques y materiales de retail.' },
+        { image: '/consultoria.png', alt: 'Empaques de retail', caption: 'Recuperación de valor en empaques y materiales de retail.' },
       ],
     },
     'building-demolition': {
       description: 'En proyectos de construcción y demolición, T3 ha encontrado oportunidades de valorización para materiales como concreto, acero, madera y otros materiales de construcción, reduciendo significativamente los costos de eliminación de residuos.',
       savings: { euros: '1,100,000', co2: '550' },
       examples: [
-        { image: '/consultoria/building-ejemplo-1.jpg', alt: 'Materiales de construcción', caption: 'Valorización de materiales de construcción y demolición.' },
+        { image: '/consultoria.png', alt: 'Materiales de construcción', caption: 'Valorización de materiales de construcción y demolición.' },
       ],
     },
     'horeca-tourism': {
       description: 'T3 ha trabajado con hoteles, restaurantes y establecimientos turísticos para encontrar soluciones sostenibles para sus residuos orgánicos, plásticos de un solo uso y otros materiales, ayudándoles a reducir costos y su impacto ambiental.',
       savings: { euros: '280,000', co2: '140' },
       examples: [
-        { image: '/consultoria/horeca-ejemplo-1.jpg', alt: 'Residuos de hoteles', caption: 'Gestión sostenible de residuos en establecimientos turísticos.' },
+        { image: '/consultoria.png', alt: 'Residuos de hoteles', caption: 'Gestión sostenible de residuos en establecimientos turísticos.' },
       ],
     },
   };
